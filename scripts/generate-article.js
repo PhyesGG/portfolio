@@ -1,15 +1,160 @@
 const fs = require('fs');
 const path = require('path');
+const fetch = require('node-fetch');
+const cheerio = require('cheerio');
 
 /**
  * Script de génération automatique d'article sur les serveurs RAG
  * Utilise Ollama en local pour générer du contenu
+ * Recherche les actualités de la semaine sur Internet
  */
 
 const OLLAMA_API_URL = 'http://localhost:11434/api/generate';
 const OLLAMA_MODEL = 'llama3.2:1b'; // Modèle léger (1.3 GB) pour GitHub Actions
 
-// Fallback : si Ollama échoue, on génère un article de base
+/**
+ * Recherche des actualités sur les serveurs RAG via DuckDuckGo
+ */
+async function searchRAGNews() {
+  const searchQueries = [
+    'RAG retrieval augmented generation news 2026',
+    'LangChain updates 2026',
+    'vector database news 2026',
+    'Ollama AI news 2026'
+  ];
+
+  const results = [];
+
+  for (const query of searchQueries) {
+    try {
+      console.log(`🔍 Recherche : "${query}"...`);
+
+      // Utiliser DuckDuckGo HTML (pas besoin d'API)
+      const searchUrl = `https://html.duckduckgo.com/html/?q=${encodeURIComponent(query)}`;
+      const response = await fetch(searchUrl, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        }
+      });
+
+      const html = await response.text();
+      const $ = cheerio.load(html);
+
+      // Extraire les résultats
+      $('.result').slice(0, 3).each((i, element) => {
+        const title = $(element).find('.result__title').text().trim();
+        const snippet = $(element).find('.result__snippet').text().trim();
+        let link = $(element).find('.result__url').attr('href');
+
+        // Nettoyer l'URL DuckDuckGo
+        if (link) {
+          // Extraire l'URL réelle du lien DuckDuckGo
+          const urlMatch = link.match(/uddg=([^&]+)/);
+          if (urlMatch) {
+            link = decodeURIComponent(urlMatch[1]);
+          }
+          // Ajouter https si manquant
+          if (link.startsWith('//')) {
+            link = 'https:' + link;
+          }
+        }
+
+        if (title && link && link.startsWith('http')) {
+          results.push({
+            title,
+            snippet,
+            url: link,
+            query
+          });
+        }
+      });
+
+      // Pause pour ne pas surcharger DuckDuckGo
+      await new Promise(resolve => setTimeout(resolve, 1000));
+    } catch (error) {
+      console.warn(`⚠️  Erreur lors de la recherche "${query}":`, error.message);
+    }
+  }
+
+  console.log(`✅ ${results.length} résultats trouvés`);
+  return results;
+}
+
+/**
+ * Génère un article basé sur les actualités trouvées
+ */
+async function generateArticleFromNews(newsResults) {
+  const today = new Date();
+  const lastWeek = new Date(today);
+  lastWeek.setDate(lastWeek.getDate() - 7);
+
+  // Créer un résumé des actualités
+  const newsSummary = newsResults.slice(0, 10).map((item, idx) =>
+    `${idx + 1}. ${item.title}\n   ${item.snippet}\n   Source: ${item.url}`
+  ).join('\n\n');
+
+  // Extraire les URLs uniques
+  const sources = [...new Set(newsResults.slice(0, 5).map(r => r.url))];
+
+  // Créer le contenu de l'article
+  let content = `# Actualités des Serveurs RAG - Semaine du ${lastWeek.toLocaleDateString('fr-FR')}\n\n`;
+  content += `Cette semaine a été riche en nouveautés dans l'écosystème des serveurs RAG (Retrieval-Augmented Generation).\n\n`;
+
+  // Organiser par thèmes
+  const themes = {
+    langchain: newsResults.filter(r => r.query.includes('LangChain')),
+    vectordb: newsResults.filter(r => r.query.includes('vector database')),
+    ollama: newsResults.filter(r => r.query.includes('Ollama')),
+    general: newsResults.filter(r => r.query.includes('RAG'))
+  };
+
+  if (themes.langchain.length > 0) {
+    content += `## 🔗 LangChain et Frameworks\n\n`;
+    themes.langchain.slice(0, 2).forEach(item => {
+      content += `**${item.title}**\n${item.snippet}\n\n`;
+    });
+  }
+
+  if (themes.vectordb.length > 0) {
+    content += `## 🗄️ Bases de Données Vectorielles\n\n`;
+    themes.vectordb.slice(0, 2).forEach(item => {
+      content += `**${item.title}**\n${item.snippet}\n\n`;
+    });
+  }
+
+  if (themes.ollama.length > 0) {
+    content += `## 🤖 IA et Modèles Locaux\n\n`;
+    themes.ollama.slice(0, 2).forEach(item => {
+      content += `**${item.title}**\n${item.snippet}\n\n`;
+    });
+  }
+
+  if (themes.general.length > 0) {
+    content += `## 📊 Tendances Générales RAG\n\n`;
+    themes.general.slice(0, 2).forEach(item => {
+      content += `**${item.title}**\n${item.snippet}\n\n`;
+    });
+  }
+
+  content += `## 🔮 Perspectives\n\n`;
+  content += `L'écosystème RAG continue d'évoluer rapidement avec de nouvelles solutions facilitant l'intégration de l'IA dans les entreprises. `;
+  content += `La tendance est à l'amélioration des performances, la simplification des déploiements et l'accent sur la confidentialité des données.\n\n`;
+
+  // Créer un titre accrocheur basé sur les résultats
+  const title = `Actualités RAG : ${themes.langchain.length > 0 ? 'LangChain' : themes.vectordb.length > 0 ? 'Vector DB' : 'IA'} en Vedette cette Semaine`;
+
+  return {
+    id: `article-${today.toISOString().split('T')[0]}`,
+    title: title,
+    summary: `Revue hebdomadaire des actualités des serveurs RAG, bases vectorielles et frameworks d'IA - ${lastWeek.toLocaleDateString('fr-FR')} au ${today.toLocaleDateString('fr-FR')}`,
+    content: content,
+    date: today.toISOString(),
+    tags: ['RAG', 'Actualités', 'IA', 'Veille'],
+    sources: sources
+  };
+}
+
+// Fallback : si tout échoue, on génère un article de base
 function generateFallbackArticle() {
   const today = new Date();
   const lastWeek = new Date(today);
@@ -195,11 +340,20 @@ async function main() {
     let article;
 
     try {
-      // Essayer de générer avec Ollama
-      article = await generateArticle();
-    } catch (ollamaError) {
-      console.warn('⚠️  Ollama a échoué, utilisation du mode fallback...');
-      console.warn('Erreur Ollama:', ollamaError.message);
+      // 1. Rechercher les actualités sur Internet
+      console.log('📰 Recherche d\'actualités sur les serveurs RAG...\n');
+      const newsResults = await searchRAGNews();
+
+      if (newsResults.length > 0) {
+        console.log('\n✅ Actualités trouvées, génération de l\'article...');
+        article = await generateArticleFromNews(newsResults);
+      } else {
+        console.warn('⚠️  Aucune actualité trouvée, utilisation du fallback...');
+        article = generateFallbackArticle();
+      }
+    } catch (searchError) {
+      console.warn('⚠️  Erreur lors de la recherche, utilisation du fallback...');
+      console.warn('Erreur:', searchError.message);
 
       // Utiliser le fallback
       article = generateFallbackArticle();
@@ -210,6 +364,7 @@ async function main() {
     console.log('Titre:', article.title);
     console.log('Résumé:', article.summary);
     console.log('Tags:', article.tags.join(', '));
+    console.log('Sources:', article.sources.length, 'sources');
     console.log('\n');
 
     await saveArticle(article);
