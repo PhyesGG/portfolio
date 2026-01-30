@@ -1,0 +1,66 @@
+name: Generate Weekly RAG Article
+
+# Déclenche le workflow tous les lundis à 9h00 (UTC+1 = 8h00 UTC)
+on:
+  schedule:
+    - cron: '0 8 * * 1'  # Tous les lundis à 8h00 UTC (9h00 heure de Paris)
+  workflow_dispatch:  # Permet de déclencher manuellement depuis GitHub
+
+jobs:
+  generate-article:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Ollama
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+
+      - name: Start Ollama service
+        run: |
+          ollama serve &
+          sleep 5
+
+      - name: Pull Ollama model
+        run: |
+          ollama pull llama3.2
+
+      - name: Wait for Ollama to be ready
+        run: |
+          timeout 60 bash -c 'until curl -s http://localhost:11434/api/tags > /dev/null; do sleep 2; done'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate article
+        run: node scripts/generate-article.js
+
+      - name: Configure Git
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+      - name: Commit and push article
+        run: |
+          git add data/articles.json
+          if git diff --staged --quiet; then
+            echo "Aucune modification détectée"
+          else
+            git commit -m "🤖 Nouvel article de veille hebdomadaire - $(date +'%Y-%m-%d')"
+            git push
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Notification
+        if: success()
+        run: echo "✅ Article généré et publié avec succès !"

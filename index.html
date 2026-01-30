@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Portfolio de Mohamed Abidi, étudiant en BTS SIO option SISR. Découvrez mon parcours, mes projets et mes compétences en infrastructure et réseaux informatiques.">
+    <meta name="keywords" content="Mohamed Abidi, BTS SIO, SISR, Portfolio, Informatique, Réseaux, Infrastructure, Paris">
+    <meta name="author" content="Mohamed Abidi">
+    <meta name="theme-color" content="#0a0a0a">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Mohamed Abidi | Portfolio BTS SIO SISR">
+    <meta property="og:description" content="Alternant Responsable Infrastructure - BTS SIO SISR">
+    <meta property="og:type" content="website">
+
+    <title>Mohamed Abidi | Infrastructure & Réseaux</title>
+
+    <!-- Preload Critical Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&family=Outfit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         PRELOADER - Cinematic Entry
+    ═══════════════════════════════════════════════════════════════ -->
+    <div class="preloader" id="preloader">
+        <div class="preloader__content">
+            <div class="preloader__logo">
+                <svg viewBox="0 0 100 100" class="preloader__svg">
+                    <defs>
+                        <linearGradient id="preloaderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#00f0ff"/>
+                            <stop offset="50%" style="stop-color:#c3f53b"/>
+                            <stop offset="100%" style="stop-color:#00f0ff"/>
+                        </linearGradient>
+                    </defs>
+                    <path class="preloader__path" d="M20,80 L50,20 L80,80 M35,55 L65,55"
+                          stroke="url(#preloaderGradient)" stroke-width="2" fill="none"/>
+                </svg>
+            </div>
+            <div class="preloader__text">
+                <span class="preloader__char">I</span>
+                <span class="preloader__char">N</span>
+                <span class="preloader__char">I</span>
+                <span class="preloader__char">T</span>
+                <span class="preloader__char">I</span>
+                <span class="preloader__char">A</span>
+                <span class="preloader__char">L</span>
+                <span class="preloader__char">I</span>
+                <span class="preloader__char">Z</span>
+                <span class="preloader__char">I</span>
+                <span class="preloader__char">N</span>
+                <span class="preloader__char">G</span>
+            </div>
+            <div class="preloader__progress">
+                <div class="preloader__progress-bar"></div>
+            </div>
+            <div class="preloader__counter">0%</div>
+        </div>
+        <div class="preloader__overlay preloader__overlay--top"></div>
+        <div class="preloader__overlay preloader__overlay--bottom"></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         CUSTOM CURSOR
+    ═══════════════════════════════════════════════════════════════ -->
+    <div class="cursor" id="cursor">
+        <div class="cursor__follower"></div>
+        <div class="cursor__dot"></div>
+        <div class="cursor__text">View</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         WEBGL CANVAS - Three.js Container
+    ═══════════════════════════════════════════════════════════════ -->
+    <canvas id="webgl" class="webgl"></canvas>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         NOISE OVERLAY - Grain Effect
+    ═══════════════════════════════════════════════════════════════ -->
+    <div class="noise-overlay"></div>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         NAVIGATION
+    ═══════════════════════════════════════════════════════════════ -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <a href="#hero" class="nav__logo" data-magnetic>
+                <span class="nav__logo-text">MA</span>
+                <span class="nav__logo-dot"></span>
+            </a>
+
+            <div class="nav__menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#hero" class="nav__link" data-magnetic data-section="hero">
+                            <span class="nav__link-text">Accueil</span>
+                            <span class="nav__link-number">01</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link" data-magnetic data-section="about">
+                            <span class="nav__link-text">À propos</span>
+                            <span class="nav__link-number">02</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#e5" class="nav__link" data-magnetic data-section="e5">
+                            <span class="nav__link-text">E5</span>
+                            <span class="nav__link-number">03</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#e6" class="nav__link" data-magnetic data-section="e6">
+                            <span class="nav__link-text">E6</span>
+                            <span class="nav__link-number">04</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#veille" class="nav__link" data-magnetic data-section="veille">
+                            <span class="nav__link-text">Veille</span>
+                            <span class="nav__link-number">05</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link nav__link--cta" data-magnetic data-section="contact">
+                            <span class="nav__link-text">Contact</span>
+                            <span class="nav__link-arrow">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                                </svg>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <button class="nav__toggle" id="navToggle" aria-label="Menu">
+                <span class="nav__toggle-line"></span>
+                <span class="nav__toggle-line"></span>
+            </button>
+        </nav>
+
+        <!-- Progress Bar -->
+        <div class="header__progress">
+            <div class="header__progress-bar" id="progressBar"></div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu__bg"></div>
+        <div class="mobile-menu__content">
+            <ul class="mobile-menu__list">
+                <li class="mobile-menu__item">
+                    <a href="#hero" class="mobile-menu__link" data-index="01">Accueil</a>
+                </li>
+                <li class="mobile-menu__item">
+                    <a href="#about" class="mobile-menu__link" data-index="02">À propos</a>
+                </li>
+                <li class="mobile-menu__item">
+                    <a href="#e5" class="mobile-menu__link" data-index="03">E5</a>
+                </li>
+                <li class="mobile-menu__item">
+                    <a href="#e6" class="mobile-menu__link" data-index="04">E6</a>
+                </li>
+                <li class="mobile-menu__item">
+                    <a href="#veille" class="mobile-menu__link" data-index="05">Veille</a>
+                </li>
+                <li class="mobile-menu__item">
+                    <a href="#contact" class="mobile-menu__link" data-index="06">Contact</a>
+                </li>
+            </ul>
+            <div class="mobile-menu__footer">
+                <a href="mailto:contact@abidimohamed.fr">contact@abidimohamed.fr</a>
+                <span>Paris, France</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         MAIN CONTENT
+    ═══════════════════════════════════════════════════════════════ -->
+    <main class="main" id="main">
+
+        <!-- ═══════════════════════════════════════════════════════════
+             HERO SECTION
+        ═══════════════════════════════════════════════════════════ -->
+        <section class="hero section" id="hero" data-section="hero">
+            <div class="hero__container">
+                <!-- Status Badge -->
+                <div class="hero__badge">
+                    <span class="hero__badge-dot"></span>
+                    <span class="hero__badge-text">Disponible en alternance</span>
+                </div>
+
+                <!-- Main Title -->
+                <div class="hero__title-wrapper">
+                    <h1 class="hero__title">
+                        <span class="hero__title-line" data-splitting>
+                            <span class="hero__title-word">Mohamed</span>
+                        </span>
+                        <span class="hero__title-line hero__title-line--indent" data-splitting>
+                            <span class="hero__title-word">Abidi</span>
+                            <span class="hero__title-accent">_</span>
+                        </span>
+                    </h1>
+                </div>
+
+                <!-- Subtitle & Description -->
+                <div class="hero__content">
+                    <div class="hero__role">
+                        <span class="hero__role-bracket">[</span>
+                        <span class="hero__role-text">Responsable Infrastructure</span>
+                        <span class="hero__role-bracket">]</span>
+                    </div>
+                    <p class="hero__description">
+                        Étudiant BTS SIO option SISR, spécialisé en administration
+                        systèmes et réseaux. Actuellement en alternance à la
+                        <strong>Faculté de Pharmacie Paris 6</strong>.
+                    </p>
+                    <div class="hero__cta">
+                        <a href="#about" class="btn btn--primary" data-magnetic>
+                            <span class="btn__text">Explorer mon parcours</span>
+                            <span class="btn__icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 5v14M5 12l7 7 7-7"/>
+                                </svg>
+                            </span>
+                        </a>
+                        <a href="#contact" class="btn btn--outline" data-magnetic>
+                            <span class="btn__text">Me contacter</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Decorative Elements -->
+                <div class="hero__decoration">
+                    <div class="hero__grid-lines">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+
+                <!-- Scroll Indicator -->
+                <div class="hero__scroll">
+                    <div class="hero__scroll-line"></div>
+                    <span class="hero__scroll-text">Scroll</span>
+                </div>
+
+                <!-- Side Info -->
+                <div class="hero__side-info">
+                    <div class="hero__location">
+                        <span class="hero__location-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                                <circle cx="12" cy="9" r="2.5"/>
+                            </svg>
+                        </span>
+                        <span>Paris, FR</span>
+                    </div>
+                    <div class="hero__year">2025</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             ABOUT SECTION
+        ═══════════════════════════════════════════════════════════ -->
+        <section class="about section" id="about" data-section="about">
+            <div class="container">
+                <!-- Section Header -->
+                <header class="section-header">
+                    <span class="section-header__number">02</span>
+                    <h2 class="section-header__title">
+                        <span class="section-header__title-line" data-reveal>À propos</span>
+                    </h2>
+                    <p class="section-header__subtitle" data-reveal>
+                        Double compétence École & Entreprise
+                    </p>
+                </header>
+
+                <!-- About Intro -->
+                <div class="about__intro">
+                    <div class="about__text" data-reveal>
+                        <p class="text-large">
+                            Passionné par les <strong>infrastructures informatiques</strong> et les
+                            <strong>nouvelles technologies</strong>, je développe mes compétences en
+                            administration systèmes et réseaux tout en explorant l'innovation technologique,
+                            notamment l'<strong>intelligence artificielle</strong>.
+                        </p>
+                    </div>
+                    <div class="about__stats">
+                        <div class="stat" data-reveal>
+                            <span class="stat__number" data-counter="2">0</span>
+                            <span class="stat__label">Ans d'expérience</span>
+                        </div>
+                        <div class="stat" data-reveal>
+                            <span class="stat__number" data-counter="3">0</span>
+                            <span class="stat__label">Projets réalisés</span>
+                        </div>
+                        <div class="stat" data-reveal>
+                            <span class="stat__number">B2</span>
+                            <span class="stat__label">Niveau anglais</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education Timeline -->
+                <div class="about__education">
+                    <h3 class="subsection-title" data-reveal>
+                        <span class="subsection-title__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                            </svg>
+                        </span>
+                        Formation
+                    </h3>
+
+                    <div class="timeline">
+                        <div class="timeline__item" data-reveal>
+                            <div class="timeline__marker">
+                                <span class="timeline__marker-dot"></span>
+                                <span class="timeline__marker-line"></span>
+                            </div>
+                            <div class="timeline__content">
+                                <div class="timeline__header">
+                                    <span class="timeline__date">2025 - 2027</span>
+                                    <span class="timeline__badge">En cours</span>
+                                </div>
+                                <h4 class="timeline__title">BTS SIO option SISR</h4>
+                                <p class="timeline__location">Paris, France</p>
+                                <p class="timeline__description">
+                                    Formation en alternance spécialisée dans l'administration des systèmes
+                                    et réseaux informatiques.
+                                </p>
+                                <div class="timeline__tags">
+                                    <span class="tag">Cisco</span>
+                                    <span class="tag">Virtualisation</span>
+                                    <span class="tag">Configuration postes</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline__item" data-reveal>
+                            <div class="timeline__marker">
+                                <span class="timeline__marker-dot"></span>
+                                <span class="timeline__marker-line"></span>
+                            </div>
+                            <div class="timeline__content">
+                                <div class="timeline__header">
+                                    <span class="timeline__date">2024 - 2025</span>
+                                </div>
+                                <h4 class="timeline__title">Mention Complémentaire SNO</h4>
+                                <p class="timeline__location">Paris, France</p>
+                                <p class="timeline__description">
+                                    Formation axée sur les compétences numériques et organisationnelles.
+                                </p>
+                                <div class="timeline__tags">
+                                    <span class="tag">Outils numériques</span>
+                                    <span class="tag">Gestion de projet</span>
+                                    <span class="tag">Data</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline__item" data-reveal>
+                            <div class="timeline__marker">
+                                <span class="timeline__marker-dot"></span>
+                            </div>
+                            <div class="timeline__content">
+                                <div class="timeline__header">
+                                    <span class="timeline__date">2022</span>
+                                </div>
+                                <h4 class="timeline__title">Baccalauréat Général</h4>
+                                <p class="timeline__location">Saint-Denis, France</p>
+                                <p class="timeline__description">
+                                    Spécialités Mathématiques et Sciences de la Vie et de la Terre.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="about__skills">
+                    <h3 class="subsection-title" data-reveal>
+                        <span class="subsection-title__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </span>
+                        Compétences
+                    </h3>
+
+                    <div class="skills-grid">
+                        <!-- Infrastructure -->
+                        <div class="skill-card" data-reveal>
+                            <div class="skill-card__header">
+                                <span class="skill-card__icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <rect x="2" y="3" width="20" height="14" rx="2"/>
+                                        <path d="M8 21h8M12 17v4"/>
+                                        <path d="M6 8h4M6 11h8"/>
+                                    </svg>
+                                </span>
+                                <h4 class="skill-card__title">Infrastructure & Réseaux</h4>
+                            </div>
+                            <div class="skill-card__items">
+                                <div class="skill-bar">
+                                    <div class="skill-bar__header">
+                                        <span class="skill-bar__name">Cisco (Routeurs & Switchs)</span>
+                                        <span class="skill-bar__value">60%</span>
+                                    </div>
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill" data-value="60"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-bar__header">
+                                        <span class="skill-bar__name">Virtualisation</span>
+                                        <span class="skill-bar__value">60%</span>
+                                    </div>
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill" data-value="60"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-bar__header">
+                                        <span class="skill-bar__name">Configuration de postes</span>
+                                        <span class="skill-bar__value">60%</span>
+                                    </div>
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill" data-value="60"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-bar__header">
+                                        <span class="skill-bar__name">Maintenance réseaux</span>
+                                        <span class="skill-bar__value">60%</span>
+                                    </div>
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill" data-value="60"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Software -->
+                        <div class="skill-card" data-reveal>
+                            <div class="skill-card__header">
+                                <span class="skill-card__icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                        <path d="M3 9h18"/>
+                                        <path d="M9 21V9"/>
+                                    </svg>
+                                </span>
+                                <h4 class="skill-card__title">Logiciels & Outils</h4>
+                            </div>
+                            <div class="skill-card__items">
+                                <div class="skill-bar">
+                                    <div class="skill-bar__header">
+                                        <span class="skill-bar__name">Suite Office (Excel avancé)</span>
+                                        <span class="skill-bar__value">80%</span>
+                                    </div>
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill" data-value="80"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-bar__header">
+                                        <span class="skill-bar__name">Canva</span>
+                                        <span class="skill-bar__value">80%</span>
+                                    </div>
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill" data-value="80"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-bar__header">
+                                        <span class="skill-bar__name">WinPharma</span>
+                                        <span class="skill-bar__value">60%</span>
+                                    </div>
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill" data-value="60"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Development -->
+                        <div class="skill-card" data-reveal>
+                            <div class="skill-card__header">
+                                <span class="skill-card__icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <polyline points="16,18 22,12 16,6"/>
+                                        <polyline points="8,6 2,12 8,18"/>
+                                    </svg>
+                                </span>
+                                <h4 class="skill-card__title">Développement & Tech</h4>
+                            </div>
+                            <div class="skill-card__items">
+                                <div class="skill-bar">
+                                    <div class="skill-bar__header">
+                                        <span class="skill-bar__name">HTML</span>
+                                        <span class="skill-bar__value">40%</span>
+                                    </div>
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill" data-value="40"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-bar__header">
+                                        <span class="skill-bar__name">Intelligence Artificielle</span>
+                                        <span class="skill-bar__value">40%</span>
+                                    </div>
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill" data-value="40"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Soft Skills -->
+                    <div class="soft-skills" data-reveal>
+                        <h4 class="soft-skills__title">Compétences Transversales</h4>
+                        <div class="soft-skills__grid">
+                            <span class="soft-skill" data-magnetic>Veille technologique</span>
+                            <span class="soft-skill" data-magnetic>Collaboration pluridisciplinaire</span>
+                            <span class="soft-skill" data-magnetic>Gestion de projet</span>
+                            <span class="soft-skill" data-magnetic>Adaptabilité</span>
+                            <span class="soft-skill" data-magnetic>Communication bilingue</span>
+                            <span class="soft-skill" data-magnetic>Assistance utilisateur</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience -->
+                <div class="about__experience">
+                    <h3 class="subsection-title" data-reveal>
+                        <span class="subsection-title__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="7" width="20" height="14" rx="2"/>
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                            </svg>
+                        </span>
+                        Expériences
+                    </h3>
+
+                    <div class="experience-grid">
+                        <!-- Experience 1 -->
+                        <article class="experience-card" data-reveal>
+                            <div class="experience-card__header">
+                                <span class="experience-card__badge">En cours</span>
+                                <span class="experience-card__date">Juil. 2023 - Présent</span>
+                            </div>
+                            <h4 class="experience-card__role">Alternant - Service Informatique</h4>
+                            <p class="experience-card__company">Faculté de Pharmacie Paris 6</p>
+                            <p class="experience-card__description">
+                                Assistance technique aux utilisateurs, maintenance des équipements et
+                                réseaux informatiques. Installation et configuration d'une solution
+                                d'IA générative locale pour l'interrogation documentaire.
+                            </p>
+                            <div class="experience-card__tags">
+                                <span class="tag tag--accent">Réseaux</span>
+                                <span class="tag tag--accent">IA générative</span>
+                                <span class="tag tag--accent">Support</span>
+                            </div>
+                        </article>
+
+                        <!-- Experience 2 -->
+                        <article class="experience-card" data-reveal>
+                            <div class="experience-card__header">
+                                <span class="experience-card__date">Jan-Fév & Mai-Juin 2025</span>
+                            </div>
+                            <h4 class="experience-card__role">Stagiaire - Service Informatique</h4>
+                            <p class="experience-card__company">Faculté de Pharmacie Paris 6</p>
+                            <p class="experience-card__description">
+                                Contribution à la modernisation et à la maintenance des systèmes
+                                en suivant les dernières évolutions technologiques.
+                            </p>
+                            <div class="experience-card__tags">
+                                <span class="tag">Maintenance</span>
+                                <span class="tag">Modernisation SI</span>
+                            </div>
+                        </article>
+
+                        <!-- Experience 3 -->
+                        <article class="experience-card" data-reveal>
+                            <div class="experience-card__header">
+                                <span class="experience-card__badge">En cours</span>
+                                <span class="experience-card__date">Juil. 2023 - Présent</span>
+                            </div>
+                            <h4 class="experience-card__role">Rayoniste</h4>
+                            <p class="experience-card__company">Pharmacie SEFIANI</p>
+                            <p class="experience-card__description">
+                                Maîtrise du logiciel WinPharma, réception de produits et mise en rayon.
+                            </p>
+                            <div class="experience-card__tags">
+                                <span class="tag">WinPharma</span>
+                                <span class="tag">Gestion de stock</span>
+                            </div>
+                        </article>
+
+                        <!-- Experience 4 -->
+                        <article class="experience-card" data-reveal>
+                            <div class="experience-card__header">
+                                <span class="experience-card__date">Mars 2021 - Jan. 2023</span>
+                            </div>
+                            <h4 class="experience-card__role">Service Client</h4>
+                            <p class="experience-card__company">SupDevPro</p>
+                            <p class="experience-card__description">
+                                Écoute et accompagnement des clients, collaboration avec les équipes
+                                internes pour proposer des solutions personnalisées.
+                            </p>
+                            <div class="experience-card__tags">
+                                <span class="tag">Relation client</span>
+                                <span class="tag">Travail d'équipe</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             E5 SECTION - Situations Professionnelles
+        ═══════════════════════════════════════════════════════════ -->
+        <section class="e5 section" id="e5" data-section="e5">
+            <div class="container">
+                <!-- Section Header -->
+                <header class="section-header">
+                    <span class="section-header__number">03</span>
+                    <h2 class="section-header__title">
+                        <span class="section-header__title-line" data-reveal>Épreuve E5</span>
+                    </h2>
+                    <p class="section-header__subtitle" data-reveal>
+                        Situations Professionnelles
+                    </p>
+                    <p class="section-header__description" data-reveal>
+                        Présentation des situations professionnelles réalisées dans le cadre
+                        du BTS SIO option SISR
+                    </p>
+                </header>
+
+                <!-- Projects Grid -->
+                <div class="projects-showcase">
+                    <!-- Project 01 -->
+                    <article class="project-card" data-reveal data-cursor="view">
+                        <div class="project-card__number">
+                            <span>01</span>
+                        </div>
+                        <div class="project-card__content">
+                            <div class="project-card__header">
+                                <span class="project-card__category">Infrastructure</span>
+                            </div>
+                            <h3 class="project-card__title">Configuration Infrastructure Réseau</h3>
+                            <p class="project-card__description">
+                                Mise en place et configuration d'une infrastructure réseau complète
+                                incluant routeurs Cisco et switchs pour optimiser les communications internes.
+                            </p>
+                            <div class="project-card__tech">
+                                <span class="tech-tag">Cisco IOS</span>
+                                <span class="tech-tag">VLAN</span>
+                                <span class="tech-tag">Routage</span>
+                            </div>
+                        </div>
+                        <div class="project-card__visual">
+                            <div class="project-card__icon">
+                                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1">
+                                    <circle cx="50" cy="30" r="15"/>
+                                    <circle cx="25" cy="70" r="12"/>
+                                    <circle cx="75" cy="70" r="12"/>
+                                    <line x1="50" y1="45" x2="25" y2="58"/>
+                                    <line x1="50" y1="45" x2="75" y2="58"/>
+                                    <line x1="37" y1="70" x2="63" y2="70"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 02 -->
+                    <article class="project-card" data-reveal data-cursor="view">
+                        <div class="project-card__number">
+                            <span>02</span>
+                        </div>
+                        <div class="project-card__content">
+                            <div class="project-card__header">
+                                <span class="project-card__category">Virtualisation</span>
+                            </div>
+                            <h3 class="project-card__title">Virtualisation d'Infrastructure</h3>
+                            <p class="project-card__description">
+                                Déploiement d'une solution de virtualisation pour optimiser l'utilisation
+                                des ressources matérielles et faciliter la gestion des environnements de test.
+                            </p>
+                            <div class="project-card__tech">
+                                <span class="tech-tag">VMware</span>
+                                <span class="tech-tag">Hyper-V</span>
+                                <span class="tech-tag">Admin système</span>
+                            </div>
+                        </div>
+                        <div class="project-card__visual">
+                            <div class="project-card__icon">
+                                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1">
+                                    <rect x="15" y="15" width="70" height="45" rx="3"/>
+                                    <rect x="25" y="25" width="20" height="15" rx="2"/>
+                                    <rect x="55" y="25" width="20" height="15" rx="2"/>
+                                    <rect x="25" y="45" width="50" height="10" rx="2"/>
+                                    <line x1="35" y1="60" x2="35" y2="75"/>
+                                    <line x1="65" y1="60" x2="65" y2="75"/>
+                                    <line x1="25" y1="75" x2="75" y2="75"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 03 -->
+                    <article class="project-card" data-reveal data-cursor="view">
+                        <div class="project-card__number">
+                            <span>03</span>
+                        </div>
+                        <div class="project-card__content">
+                            <div class="project-card__header">
+                                <span class="project-card__category">Sécurité</span>
+                            </div>
+                            <h3 class="project-card__title">Sécurisation du SI</h3>
+                            <p class="project-card__description">
+                                Audit et renforcement de la sécurité du système d'information avec
+                                mise en place de politiques de sécurité et formation des utilisateurs.
+                            </p>
+                            <div class="project-card__tech">
+                                <span class="tech-tag">Firewall</span>
+                                <span class="tech-tag">Sécurité</span>
+                                <span class="tech-tag">Audit</span>
+                            </div>
+                        </div>
+                        <div class="project-card__visual">
+                            <div class="project-card__icon">
+                                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1">
+                                    <path d="M50 10 L85 25 L85 50 C85 72 68 88 50 95 C32 88 15 72 15 50 L15 25 Z"/>
+                                    <path d="M35 50 L45 60 L65 40"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             E6 SECTION - Parcours de Professionnalisation
+        ═══════════════════════════════════════════════════════════ -->
+        <section class="e6 section" id="e6" data-section="e6">
+            <div class="container">
+                <!-- Section Header -->
+                <header class="section-header">
+                    <span class="section-header__number">04</span>
+                    <h2 class="section-header__title">
+                        <span class="section-header__title-line" data-reveal>Épreuve E6</span>
+                    </h2>
+                    <p class="section-header__subtitle" data-reveal>
+                        Parcours de Professionnalisation
+                    </p>
+                    <p class="section-header__description" data-reveal>
+                        Documentation de mon parcours et de mes réalisations en entreprise
+                    </p>
+                </header>
+
+                <!-- Company Presentation -->
+                <div class="e6__company" data-reveal>
+                    <div class="e6__company-header">
+                        <span class="e6__company-label">Entreprise d'accueil</span>
+                        <h3 class="e6__company-name">Faculté de Pharmacie Paris 6</h3>
+                    </div>
+                    <p class="e6__company-description">
+                        Établissement d'enseignement supérieur et de recherche de renommée internationale,
+                        la Faculté de Pharmacie Paris 6 forme des professionnels de santé et accueille
+                        des laboratoires de recherche de pointe.
+                    </p>
+                </div>
+
+                <!-- Missions -->
+                <div class="e6__missions">
+                    <h3 class="subsection-title" data-reveal>
+                        <span class="subsection-title__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/>
+                                <rect x="9" y="3" width="6" height="4" rx="1"/>
+                                <path d="M9 12h6M9 16h6"/>
+                            </svg>
+                        </span>
+                        Missions principales
+                    </h3>
+
+                    <div class="missions-grid">
+                        <div class="mission-card" data-reveal>
+                            <div class="mission-card__number">01</div>
+                            <h4 class="mission-card__title">Support Technique</h4>
+                            <p class="mission-card__description">
+                                Assistance quotidienne aux utilisateurs pour résoudre les problématiques
+                                informatiques et garantir la continuité de service.
+                            </p>
+                        </div>
+
+                        <div class="mission-card" data-reveal>
+                            <div class="mission-card__number">02</div>
+                            <h4 class="mission-card__title">Maintenance Infrastructure</h4>
+                            <p class="mission-card__description">
+                                Maintenance préventive et corrective des équipements réseaux et postes
+                                de travail pour assurer la disponibilité des services.
+                            </p>
+                        </div>
+
+                        <div class="mission-card" data-reveal>
+                            <div class="mission-card__number">03</div>
+                            <h4 class="mission-card__title">Innovation Technologique</h4>
+                            <p class="mission-card__description">
+                                Veille technologique et implémentation de solutions innovantes comme
+                                l'IA générative pour l'interrogation documentaire.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Competence Evolution -->
+                <div class="e6__evolution">
+                    <h3 class="subsection-title" data-reveal>
+                        <span class="subsection-title__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                                <polyline points="16 7 22 7 22 13"/>
+                            </svg>
+                        </span>
+                        Évolution des compétences
+                    </h3>
+
+                    <div class="evolution-timeline">
+                        <div class="evolution-item" data-reveal>
+                            <div class="evolution-item__header">
+                                <span class="evolution-item__year">2023</span>
+                                <span class="evolution-item__line"></span>
+                            </div>
+                            <div class="evolution-item__content">
+                                <h4 class="evolution-item__title">Découverte et intégration</h4>
+                                <p class="evolution-item__description">
+                                    Prise en main des outils et procédures, apprentissage de l'environnement
+                                    technique de la faculté.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="evolution-item" data-reveal>
+                            <div class="evolution-item__header">
+                                <span class="evolution-item__year">2024</span>
+                                <span class="evolution-item__line"></span>
+                            </div>
+                            <div class="evolution-item__content">
+                                <h4 class="evolution-item__title">Montée en compétences</h4>
+                                <p class="evolution-item__description">
+                                    Autonomisation sur les tâches courantes, participation à des projets
+                                    de modernisation de l'infrastructure.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="evolution-item" data-reveal>
+                            <div class="evolution-item__header">
+                                <span class="evolution-item__year">2025</span>
+                            </div>
+                            <div class="evolution-item__content">
+                                <h4 class="evolution-item__title">Expertise et innovation</h4>
+                                <p class="evolution-item__description">
+                                    Contribution à l'innovation avec l'implémentation d'IA, référent technique
+                                    sur certains domaines.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             VEILLE SECTION - Technology Watch
+        ═══════════════════════════════════════════════════════════ -->
+        <section class="veille section" id="veille" data-section="veille">
+            <div class="container">
+                <!-- Section Header -->
+                <header class="section-header">
+                    <span class="section-header__number">05</span>
+                    <h2 class="section-header__title">
+                        <span class="section-header__title-line" data-reveal>Veille Technologique</span>
+                    </h2>
+                    <p class="section-header__subtitle" data-reveal>
+                        Rester à la pointe
+                    </p>
+                    <p class="section-header__description" data-reveal>
+                        Ma veille sur les dernières tendances en intelligence artificielle
+                        et cybersécurité
+                    </p>
+                </header>
+
+                <!-- Topics -->
+                <div class="veille__topics">
+                    <div class="topic-card topic-card--large" data-reveal>
+                        <div class="topic-card__glow"></div>
+                        <div class="topic-card__content">
+                            <div class="topic-card__icon">
+                                <svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <circle cx="30" cy="30" r="20"/>
+                                    <circle cx="30" cy="30" r="8"/>
+                                    <line x1="30" y1="10" x2="30" y2="2"/>
+                                    <line x1="30" y1="58" x2="30" y2="50"/>
+                                    <line x1="10" y1="30" x2="2" y2="30"/>
+                                    <line x1="58" y1="30" x2="50" y2="30"/>
+                                    <circle cx="30" cy="30" r="3" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <h3 class="topic-card__title">Intelligence Artificielle & Cybersécurité</h3>
+                            <p class="topic-card__description">
+                                Suivi des avancées en IA générative, machine learning et applications
+                                professionnelles de l'IA dans les systèmes d'information et la sécurité.
+                            </p>
+                            <ul class="topic-card__list">
+                                <li>
+                                    <span class="topic-card__list-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="9 11 12 14 22 4"/>
+                                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                                        </svg>
+                                    </span>
+                                    IA Générative (GPT, Claude, LLM locaux)
+                                </li>
+                                <li>
+                                    <span class="topic-card__list-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="9 11 12 14 22 4"/>
+                                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                                        </svg>
+                                    </span>
+                                    Machine Learning et automatisation
+                                </li>
+                                <li>
+                                    <span class="topic-card__list-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="9 11 12 14 22 4"/>
+                                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                                        </svg>
+                                    </span>
+                                    Applications professionnelles de l'IA
+                                </li>
+                                <li>
+                                    <span class="topic-card__list-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="9 11 12 14 22 4"/>
+                                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                                        </svg>
+                                    </span>
+                                    Menaces et protections IA-powered
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Methodology -->
+                <div class="veille__methodology">
+                    <h3 class="subsection-title" data-reveal>
+                        <span class="subsection-title__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </span>
+                        Ma méthodologie de veille
+                    </h3>
+
+                    <div class="methodology-grid">
+                        <div class="methodology-card" data-reveal>
+                            <span class="methodology-card__icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                                </svg>
+                            </span>
+                            <h4 class="methodology-card__title">Sources</h4>
+                            <p class="methodology-card__description">
+                                Blogs techniques, documentation officielle, GitHub, Reddit, newsletters spécialisées
+                            </p>
+                        </div>
+
+                        <div class="methodology-card" data-reveal>
+                            <span class="methodology-card__icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                                </svg>
+                            </span>
+                            <h4 class="methodology-card__title">Outils</h4>
+                            <p class="methodology-card__description">
+                                Feedly, Pocket, Twitter/X pour suivre les experts, agrégateurs de news tech
+                            </p>
+                        </div>
+
+                        <div class="methodology-card" data-reveal>
+                            <span class="methodology-card__icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                            </span>
+                            <h4 class="methodology-card__title">Fréquence</h4>
+                            <p class="methodology-card__description">
+                                Veille quotidienne (30min), synthèse hebdomadaire, tests pratiques mensuels
+                            </p>
+                        </div>
+
+                        <div class="methodology-card" data-reveal>
+                            <span class="methodology-card__icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 20V10"/>
+                                    <path d="M12 20V4"/>
+                                    <path d="M6 20v-6"/>
+                                </svg>
+                            </span>
+                            <h4 class="methodology-card__title">Application</h4>
+                            <p class="methodology-card__description">
+                                Expérimentation personnelle, partage en équipe, intégration dans les projets
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             CONTACT SECTION
+        ═══════════════════════════════════════════════════════════ -->
+        <section class="contact section" id="contact" data-section="contact">
+            <div class="container">
+                <div class="contact__wrapper">
+                    <!-- Left Side -->
+                    <div class="contact__info">
+                        <header class="contact__header">
+                            <span class="section-header__number">06</span>
+                            <h2 class="contact__title" data-reveal>
+                                <span class="contact__title-line">Travaillons</span>
+                                <span class="contact__title-line contact__title-line--accent">ensemble</span>
+                            </h2>
+                            <p class="contact__subtitle" data-reveal>
+                                N'hésitez pas à me contacter pour toute opportunité ou question
+                            </p>
+                        </header>
+
+                        <div class="contact__details" data-reveal>
+                            <a href="mailto:contact@abidimohamed.fr" class="contact__link" data-magnetic>
+                                <span class="contact__link-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                        <polyline points="22,6 12,13 2,6"/>
+                                    </svg>
+                                </span>
+                                <span class="contact__link-content">
+                                    <span class="contact__link-label">Email</span>
+                                    <span class="contact__link-value">contact@abidimohamed.fr</span>
+                                </span>
+                            </a>
+
+                            <a href="tel:+33771669117" class="contact__link" data-magnetic>
+                                <span class="contact__link-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                    </svg>
+                                </span>
+                                <span class="contact__link-content">
+                                    <span class="contact__link-label">Téléphone</span>
+                                    <span class="contact__link-value">+33 7 71 66 91 17</span>
+                                </span>
+                            </a>
+
+                            <div class="contact__link">
+                                <span class="contact__link-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                </span>
+                                <span class="contact__link-content">
+                                    <span class="contact__link-label">Localisation</span>
+                                    <span class="contact__link-value">Paris, France</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Side - Form -->
+                    <div class="contact__form-wrapper" data-reveal>
+                        <form class="contact-form" id="contactForm">
+                            <div class="contact-form__group">
+                                <input type="text" id="name" name="name" class="contact-form__input" placeholder=" " required>
+                                <label for="name" class="contact-form__label">Votre nom</label>
+                                <span class="contact-form__focus"></span>
+                            </div>
+
+                            <div class="contact-form__group">
+                                <input type="email" id="email" name="email" class="contact-form__input" placeholder=" " required>
+                                <label for="email" class="contact-form__label">Votre email</label>
+                                <span class="contact-form__focus"></span>
+                            </div>
+
+                            <div class="contact-form__group">
+                                <input type="text" id="subject" name="subject" class="contact-form__input" placeholder=" ">
+                                <label for="subject" class="contact-form__label">Sujet</label>
+                                <span class="contact-form__focus"></span>
+                            </div>
+
+                            <div class="contact-form__group contact-form__group--textarea">
+                                <textarea id="message" name="message" class="contact-form__input contact-form__textarea" placeholder=" " required></textarea>
+                                <label for="message" class="contact-form__label">Votre message</label>
+                                <span class="contact-form__focus"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn--primary btn--full" data-magnetic>
+                                <span class="btn__text">Envoyer le message</span>
+                                <span class="btn__icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="22" y1="2" x2="11" y2="13"/>
+                                        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                                    </svg>
+                                </span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         FOOTER
+    ═══════════════════════════════════════════════════════════════ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__left">
+                    <span class="footer__copyright">&copy; 2025 Mohamed Abidi</span>
+                    <span class="footer__separator">|</span>
+                    <span class="footer__credits">Portfolio BTS SIO SISR</span>
+                </div>
+                <div class="footer__right">
+                    <a href="mailto:contact@abidimohamed.fr" class="footer__link" data-magnetic>
+                        contact@abidimohamed.fr
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         SCRIPTS
+    ═══════════════════════════════════════════════════════════════ -->
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <!-- Main Script -->
+    <script src="script.js"></script>
+</body>
+</html>
