@@ -2,15 +2,15 @@
   "articles": [
     {
       "id": "article-2026-01-30",
-      "title": "Évolution des Serveurs RAG : Nouvelles Architectures",
+      "title": "Bases de Données Vectorielles : Performance et Scalabilité",
       "summary": "Article de veille hebdomadaire sur les serveurs RAG - Période du 23/01/2026 au 30/01/2026",
-      "content": "# Évolution des Serveurs RAG : Nouvelles Architectures\n\nLes serveurs RAG continuent d'évoluer avec de nouvelles architectures plus performantes.\n\n## Tendances de la semaine\n\nCette semaine, plusieurs développements majeurs ont marqué l'écosystème RAG :\n\n### Optimisation des embeddings\nLes nouvelles techniques d'embedding permettent une recherche sémantique plus précise avec des bases de données vectorielles optimisées.\n\n### Modèles hybrides\nL'intégration de modèles locaux (Ollama) avec des APIs cloud offre le meilleur des deux mondes : confidentialité et performance.\n\n### Cas d'usage en entreprise\nDe plus en plus d'entreprises déploient des serveurs RAG pour leurs bases de connaissances internes, améliorant significativement l'accès à l'information.",
-      "date": "2026-01-30T20:34:37.026Z",
+      "content": "# Bases de Données Vectorielles : Performance et Scalabilité\n\nLes bases de données vectorielles sont au cœur des serveurs RAG.\n\n## Innovations récentes\n\n### Weaviate et Qdrant\nNouvelles fonctionnalités de clustering permettant de gérer des millions de vecteurs efficacement.\n\n### Optimisation des index\nAlgorithmes HNSW améliorés pour des recherches de similarité ultra-rapides.\n\n### Déploiement on-premise\nSolutions facilitant le déploiement de bases vectorielles dans l'infrastructure existante des entreprises.",
+      "date": "2026-01-30T20:38:14.059Z",
       "tags": [
-        "RAG",
-        "IA",
-        "Embeddings",
-        "Entreprise"
+        "Vector DB",
+        "Weaviate",
+        "Performance",
+        "RAG"
       ],
       "sources": [
         "https://www.langchain.com/",
