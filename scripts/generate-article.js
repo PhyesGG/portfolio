@@ -57,28 +57,57 @@ Format de réponse souhaité en JSON :
 {
   "title": "Titre accrocheur de l'article",
   "summary": "Résumé en 2-3 phrases",
-  "content": "Contenu complet de l'article en markdown",
-  "tags": ["tag1", "tag2", "tag3"],
-  "sources": ["url1", "url2"]
+  "content": "Contenu complet de l'article en markdown. Utilise \\n pour les sauts de ligne. Echappe les guillemets avec \\\".",
+  "tags": ["tag1", "tag2", "tag3", "tag4"],
+  "sources": ["https://example.com/source1", "https://example.com/source2"]
 }
 
-IMPORTANT : Réponds UNIQUEMENT avec le JSON, sans texte avant ou après.`;
+CRITIQUES IMPORTANTES :
+- Réponds UNIQUEMENT avec le JSON valide, aucun texte avant ou après
+- Utilise \\n pour les sauts de ligne dans le contenu
+- Echappe tous les guillemets dans le contenu avec \\\"
+- Le contenu doit être une seule chaîne de caractères
+- Assure-toi que le JSON est parfaitement formaté et valide`;
 
   console.log('🤖 Génération de l\'article avec Ollama...');
   const response = await generateWithOllama(prompt);
 
+  console.log('📄 Réponse brute d\'Ollama (premiers 500 caractères):');
+  console.log(response.substring(0, 500));
+
   // Essayer d'extraire le JSON de la réponse
   let articleData;
   try {
-    // Tenter de parser directement
-    articleData = JSON.parse(response);
-  } catch (e) {
-    // Si échec, essayer d'extraire le JSON du texte
-    const jsonMatch = response.match(/\{[\s\S]*\}/);
+    // Nettoyer la réponse avant de parser
+    let cleanedResponse = response.trim();
+
+    // Extraire le JSON s'il y a du texte avant/après
+    const jsonMatch = cleanedResponse.match(/\{[\s\S]*\}/);
     if (jsonMatch) {
-      articleData = JSON.parse(jsonMatch[0]);
-    } else {
-      throw new Error('Impossible d\'extraire le JSON de la réponse Ollama');
+      cleanedResponse = jsonMatch[0];
+    }
+
+    // Tenter de parser
+    articleData = JSON.parse(cleanedResponse);
+  } catch (e) {
+    console.error('❌ Erreur de parsing JSON:', e.message);
+    console.log('📝 Tentative de nettoyage avancé...');
+
+    try {
+      // Nettoyage plus agressif
+      let cleanedResponse = response
+        .replace(/[\x00-\x1F\x7F-\x9F]/g, '') // Supprimer les caractères de contrôle
+        .trim();
+
+      const jsonMatch = cleanedResponse.match(/\{[\s\S]*\}/);
+      if (jsonMatch) {
+        articleData = JSON.parse(jsonMatch[0]);
+      } else {
+        throw new Error('Impossible d\'extraire un JSON valide de la réponse');
+      }
+    } catch (e2) {
+      console.error('❌ Échec du nettoyage avancé');
+      throw new Error(`Erreur de parsing JSON: ${e.message}. Réponse: ${response.substring(0, 200)}`);
     }
   }
 
