@@ -143,13 +143,12 @@ async function generateArticleFromNews(newsResults) {
   // Créer un titre accrocheur basé sur les résultats
   const title = `Actualités RAG : ${themes.langchain.length > 0 ? 'LangChain' : themes.vectordb.length > 0 ? 'Vector DB' : 'IA'} en Vedette cette Semaine`;
 
-  // Générer un ID unique basé sur la semaine (lundi de la semaine)
-  const monday = new Date(today);
-  monday.setDate(today.getDate() - today.getDay() + 1); // Lundi de cette semaine
-  const weekId = monday.toISOString().split('T')[0];
+  // Générer un ID unique avec timestamp pour chaque exécution
+  const timestamp = today.getTime();
+  const dateStr = today.toISOString().split('T')[0];
 
   return {
-    id: `article-week-${weekId}`,
+    id: `article-${dateStr}-${timestamp}`,
     title: title,
     summary: `Revue hebdomadaire des actualités des serveurs RAG, bases vectorielles et frameworks d'IA - ${lastWeek.toLocaleDateString('fr-FR')} au ${today.toLocaleDateString('fr-FR')}`,
     content: content,
@@ -185,13 +184,12 @@ function generateFallbackArticle() {
 
   const randomTopic = topics[Math.floor(Math.random() * topics.length)];
 
-  // Générer un ID unique basé sur la semaine (lundi de la semaine)
-  const monday = new Date(today);
-  monday.setDate(today.getDate() - today.getDay() + 1); // Lundi de cette semaine
-  const weekId = monday.toISOString().split('T')[0];
+  // Générer un ID unique avec timestamp pour chaque exécution
+  const timestamp = today.getTime();
+  const dateStr = today.toISOString().split('T')[0];
 
   return {
-    id: `article-week-${weekId}`,
+    id: `article-${dateStr}-${timestamp}`,
     title: randomTopic.title,
     summary: `Article de veille hebdomadaire sur les serveurs RAG - Période du ${lastWeek.toLocaleDateString('fr-FR')} au ${today.toLocaleDateString('fr-FR')}`,
     content: randomTopic.content,
