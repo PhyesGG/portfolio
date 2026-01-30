@@ -7,7 +7,7 @@ const path = require('path');
  */
 
 const OLLAMA_API_URL = 'http://localhost:11434/api/generate';
-const OLLAMA_MODEL = 'llama3.2'; // Vous pouvez changer pour le modèle que vous avez (llama2, mistral, etc.)
+const OLLAMA_MODEL = 'llama3.2:1b'; // Modèle léger (1.3 GB) pour GitHub Actions
 
 async function generateWithOllama(prompt) {
   try {
