@@ -28,11 +28,11 @@ export default function VeilleTechnologique() {
           viewport={{ amount: 0.1, once: true }}
         >
           <div className="bg-gradient-to-br from-primary/90 to-secondary/90 backdrop-blur-md rounded-lg border border-accent p-6">
-            <h2 className="text-2xl font-semibold mb-4">Qu'est-ce qu'un Serveur RAG ?</h2>
+            <h2 className="text-2xl font-semibold mb-4">Qu&apos;est-ce qu&apos;un Serveur RAG ?</h2>
             <p className="text-gray-300 mb-4">
-              Le RAG (Retrieval-Augmented Generation) est une architecture qui combine la recherche d'informations
+              Le RAG (Retrieval-Augmented Generation) est une architecture qui combine la recherche d&apos;informations
               dans une base de connaissances avec la génération de texte par IA. Cette technologie permet aux
-              modèles de langage d'accéder à des données spécifiques et actualisées pour produire des réponses
+              modèles de langage d&apos;accéder à des données spécifiques et actualisées pour produire des réponses
               plus précises et contextuelles.
             </p>
             <div className="flex flex-wrap gap-2">
@@ -47,8 +47,8 @@ export default function VeilleTechnologique() {
             <h2 className="text-2xl font-semibold mb-4">Technologies & Solutions RAG</h2>
             <p className="text-gray-300 mb-4">
               Exploration des principales plateformes et frameworks pour implémenter des serveurs RAG :
-              LangChain pour l'orchestration, ChromaDB et Pinecone pour le stockage vectoriel, Ollama pour
-              l'hébergement local de LLM, et OpenAI/Anthropic pour les modèles cloud.
+              LangChain pour l&apos;orchestration, ChromaDB et Pinecone pour le stockage vectoriel, Ollama pour
+              l&apos;hébergement local de LLM, et OpenAI/Anthropic pour les modèles cloud.
             </p>
             <div className="flex flex-wrap gap-2">
               <span className="px-3 py-1 bg-accent/20 rounded-full text-sm">LangChain</span>
@@ -62,7 +62,7 @@ export default function VeilleTechnologique() {
           <div className="bg-gradient-to-tr from-primary/90 to-secondary/90 backdrop-blur-md rounded-lg border border-accent p-6">
             <h2 className="text-2xl font-semibold mb-4">Applications en Entreprise</h2>
             <p className="text-gray-300 mb-4">
-              Les serveurs RAG révolutionnent l'accès à l'information en entreprise : assistants intelligents
+              Les serveurs RAG révolutionnent l&apos;accès à l&apos;information en entreprise : assistants intelligents
               pour la documentation technique, systèmes de support client automatisés, analyse de bases de
               connaissances internes, et aide à la décision basée sur des données propriétaires sécurisées.
             </p>
