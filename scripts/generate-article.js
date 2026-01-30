@@ -143,8 +143,13 @@ async function generateArticleFromNews(newsResults) {
   // Créer un titre accrocheur basé sur les résultats
   const title = `Actualités RAG : ${themes.langchain.length > 0 ? 'LangChain' : themes.vectordb.length > 0 ? 'Vector DB' : 'IA'} en Vedette cette Semaine`;
 
+  // Générer un ID unique basé sur la semaine (lundi de la semaine)
+  const monday = new Date(today);
+  monday.setDate(today.getDate() - today.getDay() + 1); // Lundi de cette semaine
+  const weekId = monday.toISOString().split('T')[0];
+
   return {
-    id: `article-${today.toISOString().split('T')[0]}`,
+    id: `article-week-${weekId}`,
     title: title,
     summary: `Revue hebdomadaire des actualités des serveurs RAG, bases vectorielles et frameworks d'IA - ${lastWeek.toLocaleDateString('fr-FR')} au ${today.toLocaleDateString('fr-FR')}`,
     content: content,
@@ -180,8 +185,13 @@ function generateFallbackArticle() {
 
   const randomTopic = topics[Math.floor(Math.random() * topics.length)];
 
+  // Générer un ID unique basé sur la semaine (lundi de la semaine)
+  const monday = new Date(today);
+  monday.setDate(today.getDate() - today.getDay() + 1); // Lundi de cette semaine
+  const weekId = monday.toISOString().split('T')[0];
+
   return {
-    id: `article-${today.toISOString().split('T')[0]}`,
+    id: `article-week-${weekId}`,
     title: randomTopic.title,
     summary: `Article de veille hebdomadaire sur les serveurs RAG - Période du ${lastWeek.toLocaleDateString('fr-FR')} au ${today.toLocaleDateString('fr-FR')}`,
     content: randomTopic.content,
@@ -317,20 +327,26 @@ async function saveArticle(article) {
   // Lire le fichier existant
   const data = JSON.parse(fs.readFileSync(articlesPath, 'utf8'));
 
-  // Vérifier si un article existe déjà pour aujourd'hui
+  // Vérifier si un article avec le même ID existe déjà
   const existingIndex = data.articles.findIndex(a => a.id === article.id);
 
   if (existingIndex !== -1) {
-    console.log('⚠️  Un article existe déjà pour aujourd\'hui, mise à jour...');
+    console.log('⚠️  Un article avec le même ID existe déjà, remplacement...');
     data.articles[existingIndex] = article;
   } else {
     console.log('✅ Ajout du nouvel article...');
-    data.articles.unshift(article); // Ajouter au début
+    data.articles.unshift(article); // Ajouter au début (plus récent en premier)
+  }
+
+  // Limiter à 50 articles maximum pour ne pas surcharger
+  if (data.articles.length > 50) {
+    console.log(`📦 Limitation à 50 articles (suppression des ${data.articles.length - 50} plus anciens)`);
+    data.articles = data.articles.slice(0, 50);
   }
 
   // Sauvegarder
   fs.writeFileSync(articlesPath, JSON.stringify(data, null, 2), 'utf8');
-  console.log('💾 Article sauvegardé avec succès !');
+  console.log(`💾 Article sauvegardé avec succès ! Total: ${data.articles.length} articles`);
 }
 
 async function main() {
