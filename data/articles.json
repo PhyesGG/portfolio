@@ -1,12 +1,35 @@
 {
   "articles": [
     {
+      "id": "article-2026-01-30",
+      "title": "Évolution des Serveurs RAG : Nouvelles Architectures",
+      "summary": "Article de veille hebdomadaire sur les serveurs RAG - Période du 23/01/2026 au 30/01/2026",
+      "content": "# Évolution des Serveurs RAG : Nouvelles Architectures\n\nLes serveurs RAG continuent d'évoluer avec de nouvelles architectures plus performantes.\n\n## Tendances de la semaine\n\nCette semaine, plusieurs développements majeurs ont marqué l'écosystème RAG :\n\n### Optimisation des embeddings\nLes nouvelles techniques d'embedding permettent une recherche sémantique plus précise avec des bases de données vectorielles optimisées.\n\n### Modèles hybrides\nL'intégration de modèles locaux (Ollama) avec des APIs cloud offre le meilleur des deux mondes : confidentialité et performance.\n\n### Cas d'usage en entreprise\nDe plus en plus d'entreprises déploient des serveurs RAG pour leurs bases de connaissances internes, améliorant significativement l'accès à l'information.",
+      "date": "2026-01-30T20:34:37.026Z",
+      "tags": [
+        "RAG",
+        "IA",
+        "Embeddings",
+        "Entreprise"
+      ],
+      "sources": [
+        "https://www.langchain.com/",
+        "https://ollama.ai/",
+        "https://www.pinecone.io/"
+      ]
+    },
+    {
       "id": "exemple-2026-01-30",
       "title": "Introduction aux Serveurs RAG",
       "summary": "Article d'exemple présentant les bases des serveurs RAG et leur utilisation en entreprise.",
       "content": "# Introduction aux Serveurs RAG\n\nLes serveurs RAG (Retrieval-Augmented Generation) représentent une avancée majeure dans le domaine de l'intelligence artificielle. Cette technologie combine la puissance des modèles de langage avec la précision de la recherche d'information.\n\n## Qu'est-ce qu'un serveur RAG ?\n\nUn serveur RAG fonctionne en deux étapes principales :\n\n1. **Retrieval (Récupération)** : Le système recherche les informations pertinentes dans une base de données vectorielle\n2. **Generation (Génération)** : Un modèle de langage utilise ces informations pour générer une réponse contextuelle\n\n## Avantages en entreprise\n\n- **Précision accrue** : Les réponses sont basées sur vos données spécifiques\n- **Confidentialité** : Les données restent dans votre infrastructure\n- **Actualité** : Les informations peuvent être mises à jour en temps réel\n- **Traçabilité** : Les sources utilisées sont identifiables\n\n## Technologies principales\n\nLes frameworks comme LangChain, les bases de données vectorielles comme ChromaDB ou Pinecone, et les modèles LLM locaux comme Ollama permettent de créer des solutions RAG performantes et sécurisées.",
       "date": "2026-01-30T09:00:00Z",
-      "tags": ["RAG", "IA", "LLM", "Entreprise"],
+      "tags": [
+        "RAG",
+        "IA",
+        "LLM",
+        "Entreprise"
+      ],
       "sources": [
         "https://www.langchain.com/",
         "https://ollama.ai/"
