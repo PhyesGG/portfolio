@@ -1,0 +1,20 @@
+{
+  "id": "article-2026-03-16-1773651535659",
+  "title": "Actualités RAG : LangChain en Vedette cette Semaine",
+  "summary": "Revue hebdomadaire des actualités des serveurs RAG, bases vectorielles et frameworks d'IA - 09/03/2026 au 16/03/2026",
+  "content": "# Actualités des Serveurs RAG - Semaine du 09/03/2026\n\nCette semaine a été riche en nouveautés dans l'écosystème des serveurs RAG (Retrieval-Augmented Generation).\n\n## 🔗 LangChain et Frameworks\n\n**January 2026: LangChain Newsletter**\nJanuary 2026: LangChain Newsletter Read about the latest product updates, events, and content from the LangChain team\n\n**LangChain Ecosystem Updates and Agentic AI Roadmap 2026**\nAn in-depth look at the January 2026 LangChain updates, focusing on LangGraph enterprise features, DeepSeek-V3 integration, and the evolution of agentic RAG workflows.\n\n## 🗄️ Bases de Données Vectorielles\n\n**Why 2026 Is the Year of the Vector Database - LinkedIn**\nFor AI-native applications in 2026, that moment belongs to the vector database. We've been talking about semantic search, recommendation engines, and \"context-aware\" applications for years.\n\n**Agents need vector search more than RAG ever did - VentureBeat**\nQdrant's $50M Series B and version 1.17 release make the case that agentic AI didn't simplify vector search — it scaled the retrieval problem up. Here's what production deployments from ...\n\n## 🤖 IA et Modèles Locaux\n\n**Blog · Ollama**\nThe simplest and fastest way to setup OpenClaw February 23, 2026 Setup OpenClaw in under two minutes with a single Ollama command. Subagents and web search in Claude Code February 16, 2026 Ollama now supports subagents and web search in Claude Code. OpenClaw February 1, 2026 OpenClaw is a personal AI assistant that connects your messaging apps to local AI coding agents, all running on your own ...\n\n**Researchers Find 175,000 Publicly Exposed Ollama AI ... - The Hacker News**\nOver 175,000 publicly exposed Ollama AI servers across 130 countries, with many enabling tool calling that allows code execution and LLMjacking abuse.\n\n## 📊 Tendances Générales RAG\n\n**RAG in 2026: How Retrieval-Augmented Generation Works for Enterprise AI**\nRAG in 2026 in Enterprise AI scenario has shifted from experimentation to a production-critical architecture, redefining how organizations deploy retrieval augmented generation in 2026 to ensure accuracy, compliance, and real-time intelligence.\n\n**[2603.07379] SoK: Agentic Retrieval-Augmented Generation (RAG ...**\nRetrieval-Augmented Generation (RAG) systems are increasingly evolving into agentic architectures where large language models autonomously coordinate multi-step reasoning, dynamic memory management, and iterative retrieval strategies. Despite rapid industrial adoption, current research lacks a systematic understanding of Agentic RAG as a sequential decision-making system, leading to highly ...\n\n## 🔮 Perspectives\n\nL'écosystème RAG continue d'évoluer rapidement avec de nouvelles solutions facilitant l'intégration de l'IA dans les entreprises. La tendance est à l'amélioration des performances, la simplification des déploiements et l'accent sur la confidentialité des données.\n\n",
+  "date": "2026-03-16T08:58:55.659Z",
+  "tags": [
+    "RAG",
+    "Actualités",
+    "IA",
+    "Veille"
+  ],
+  "sources": [
+    "https://www.techment.com/blogs/rag-in-2026/",
+    "https://arxiv.org/abs/2603.07379",
+    "https://www.linkedin.com/pulse/rag-20-next-evolution-retrieval-augmented-generation-2026-asif-p4f7f",
+    "https://blog.langchain.com/january-2026-langchain-newsletter/",
+    "https://explore.n1n.ai/blog/langchain-ecosystem-updates-agentic-ai-roadmap-2026-2026-01-31"
+  ]
+}

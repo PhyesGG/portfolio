@@ -1,0 +1,20 @@
+{
+  "id": "article-2026-02-23-1771836821235",
+  "title": "Actualités RAG : LangChain en Vedette cette Semaine",
+  "summary": "Revue hebdomadaire des actualités des serveurs RAG, bases vectorielles et frameworks d'IA - 16/02/2026 au 23/02/2026",
+  "content": "# Actualités des Serveurs RAG - Semaine du 16/02/2026\n\nCette semaine a été riche en nouveautés dans l'écosystème des serveurs RAG (Retrieval-Augmented Generation).\n\n## 🔗 LangChain et Frameworks\n\n**January 2026: LangChain Newsletter**\nJanuary 2026: LangChain Newsletter Read about the latest product updates, events, and content from the LangChain team\n\n**LangChain Python Tutorial: 2026's Complete Guide | The PyCharm Blog**\nLearn how to build AI agents with LangChain in 2026 - from chatbots and document Q&A to tools, guardrails, testing, and debugging in PyCharm.\n\n## 🗄️ Bases de Données Vectorielles\n\n**What's Changing in Vector Databases in 2026 - DEV Community**\nThe Three Market Forces Reshaping Vector Databases in 2026 If 2022-2025 was about adding vector-native databases to AI applications, 2026 is leaning towards moving back to extended relational databases, rethinking architectural designs, and addressing an overlooked edge deployment gap. These three distinct trends stand out the most.\n\n**Vector Database 2026: Key Advancements Unfolding**\nVector databases have matured from experimental infrastructure into indispensable systems—and 2026 is the year they level up. Hybrid search architectures, secure access control, graph synergy, and AI-native features drive performance, safety, and accuracy.\n\n## 🤖 IA et Modèles Locaux\n\n**Researchers Find 175,000 Publicly Exposed Ollama AI ... - The Hacker News**\nOver 175,000 publicly exposed Ollama AI servers across 130 countries, with many enabling tool calling that allows code execution and LLMjacking abuse.\n\n**Blog · Ollama**\nSubagents and web search in Claude Code February 16, 2026 Ollama now supports subagents and web search in Claude Code. OpenClaw February 1, 2026 OpenClaw is a personal AI assistant that connects your messaging apps to local AI coding agents, all running on your own device. ollama launch January 23, 2026 ollama launch is a new command which sets up and runs coding tools like Claude Code ...\n\n## 📊 Tendances Générales RAG\n\n**Retrieval-Augmented Generation (RAG) Redefining the AI Landscape in 2026**\nIn 2026, Retrieval-Augmented Generation (RAG) will move from experimental innovation to a foundational capability that reshapes how organizations operate and interact with AI.\n\n**RAG 2.0: Retrieval-Augmented Generation in 2026 - LinkedIn**\nExplore RAG 2.0—the next evolution of Retrieval-Augmented Generation in 2026. Learn new patterns, hybrid search, multimodal retrieval, and how RAG powers Agenti\n\n## 🔮 Perspectives\n\nL'écosystème RAG continue d'évoluer rapidement avec de nouvelles solutions facilitant l'intégration de l'IA dans les entreprises. La tendance est à l'amélioration des performances, la simplification des déploiements et l'accent sur la confidentialité des données.\n\n",
+  "date": "2026-02-23T08:53:41.235Z",
+  "tags": [
+    "RAG",
+    "Actualités",
+    "IA",
+    "Veille"
+  ],
+  "sources": [
+    "https://vmblog.com/archive/2025/12/15/retrieval-augmented-generation-rag-redefining-the-ai-landscape-in-2026.aspx",
+    "https://www.linkedin.com/pulse/rag-20-next-evolution-retrieval-augmented-generation-2026-asif-p4f7f",
+    "https://thebftonline.com/2026/02/20/ais-engine-room-how-retrieval-augmented-generation-rag-is-transforming-the-future-of-trustworthy-intelligence/",
+    "https://blog.langchain.com/january-2026-langchain-newsletter/",
+    "https://blog.jetbrains.com/pycharm/2026/02/langchain-tutorial-2026/"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "article-2026-02-19-1771490690626",
+  "title": "Actualités RAG : LangChain en Vedette cette Semaine",
+  "summary": "Revue hebdomadaire des actualités des serveurs RAG, bases vectorielles et frameworks d'IA - 12/02/2026 au 19/02/2026",
+  "content": "# Actualités des Serveurs RAG - Semaine du 12/02/2026\n\nCette semaine a été riche en nouveautés dans l'écosystème des serveurs RAG (Retrieval-Augmented Generation).\n\n## 🔗 LangChain et Frameworks\n\n**January 2026: LangChain Newsletter**\nJanuary 2026: LangChain Newsletter Read about the latest product updates, events, and content from the LangChain team\n\n**Langchain Community SSRF Bypass Vulnerability Exposes Internal Services ...**\nThe Langchain development team has released a critical security update for the @langchain/community package to address a Server-Side Request Forgery (SSRF) vulnerability. Identified as CVE-2026-26019, this flaw exists within the RecursiveUrlLoader class, a utility used for web crawling. If left unpatched, the vulnerability allows attackers to bypass domain restrictions and force the ...\n\n## 🗄️ Bases de Données Vectorielles\n\n**What's Changing in Vector Databases in 2026 - DEV Community**\nThe Three Market Forces Reshaping Vector Databases in 2026 If 2022-2025 was about adding vector-native databases to AI applications, 2026 is leaning towards moving back to extended relational databases, rethinking architectural designs, and addressing an overlooked edge deployment gap. These three distinct trends stand out the most.\n\n**Vector Databases in 2026: The New Standard for AI-Powered Applications**\nWhy traditional SQL falls short: vector databases like Pinecone and Milvus for AI embeddings in 2026 apps.\n\n## 🤖 IA et Modèles Locaux\n\n**Researchers Find 175,000 Publicly Exposed Ollama AI ... - The Hacker News**\nOver 175,000 publicly exposed Ollama AI servers across 130 countries, with many enabling tool calling that allows code execution and LLMjacking abuse.\n\n**What Are Exposed Ollama Hosts and Why Are 175,000 a Security Risk?**\nThe always-on core While many exposed Ollama hosts appear briefly and disappear, a persistent core of approximately 23,000 systems drives most of the activity. These hosts show an average uptime of 87% while actively running multiple AI models. \"These are systems that provide ongoing utility to their operators and, by extension, represent the most attractive and accessible targets for ...\n\n## 📊 Tendances Générales RAG\n\n**RAG 2.0: Retrieval-Augmented Generation in 2026 - LinkedIn**\nExplore RAG 2.0—the next evolution of Retrieval-Augmented Generation in 2026. Learn new patterns, hybrid search, multimodal retrieval, and how RAG powers Agenti\n\n**10 RAG Architectures in 2026: Enterprise Use Cases & Strategy**\nRAG Architecture Comparison: Which Model Fits Your Enterprise? Enterprise leaders are no longer asking whether retrieval-augmented generation is necessary. The strategic question in 2026 is which RAG architecture aligns with operational complexity, governance requirements, and long-term AI strategy.\n\n## 🔮 Perspectives\n\nL'écosystème RAG continue d'évoluer rapidement avec de nouvelles solutions facilitant l'intégration de l'IA dans les entreprises. La tendance est à l'amélioration des performances, la simplification des déploiements et l'accent sur la confidentialité des données.\n\n",
+  "date": "2026-02-19T08:44:50.626Z",
+  "tags": [
+    "RAG",
+    "Actualités",
+    "IA",
+    "Veille"
+  ],
+  "sources": [
+    "https://www.linkedin.com/pulse/rag-20-next-evolution-retrieval-augmented-generation-2026-asif-p4f7f",
+    "https://www.techment.com/blogs/rag-architectures-enterprise-use-cases-2026/",
+    "https://medium.com/@reliabledataengineering/rag-is-dead-and-why-thats-the-best-news-you-ll-hear-all-year-0f3de8c44604",
+    "https://blog.langchain.com/january-2026-langchain-newsletter/",
+    "https://gbhackers.com/langchain-community-ssrf-bypass-vulnerability/"
+  ]
+}

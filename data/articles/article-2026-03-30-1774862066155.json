@@ -1,0 +1,20 @@
+{
+  "id": "article-2026-03-30-1774862066155",
+  "title": "Actualités RAG : LangChain en Vedette cette Semaine",
+  "summary": "Revue hebdomadaire des actualités des serveurs RAG, bases vectorielles et frameworks d'IA - 23/03/2026 au 30/03/2026",
+  "content": "# Actualités des Serveurs RAG - Semaine du 23/03/2026\n\nCette semaine a été riche en nouveautés dans l'écosystème des serveurs RAG (Retrieval-Augmented Generation).\n\n## 🔗 LangChain et Frameworks\n\n**January 2026: LangChain Newsletter**\nJanuary 2026: LangChain Newsletter Read about the latest product updates, events, and content from the LangChain team\n\n**LangChain, LangGraph Flaws Expose Files, Secrets, Databases in Widely ...**\nThe vulnerabilities have been patched in the following versions - CVE-2026-34070 - langchain-core >=1.2.22 CVE-2025-68664 - langchain-core 0.3.81 and 1.2.5 CVE-2025-67644 - langgraph-checkpoint-sqlite 3.0.1 The findings once again underscore how artificial intelligence (AI) plumbing is not immune to classic security vulnerabilities, potentially putting entire systems at risk. The development ...\n\n## 🗄️ Bases de Données Vectorielles\n\n**What's Changing in Vector Databases in 2026 - DEV Community**\nForce 1: Database Consolidation (Multimodal Platforms Win) In 2026, major traditional relational databases have integrated vector capabilities into their data layer, and their extensions are already showing success with AI workloads. PostgreSQL's pgvectorscale, for instance, benchmarked 471 QPS, against Qdrant's 41 QPS at 99% recall on 50M ...\n\n**Vector Databases in 2026: RAG Systems and Real-World Applications**\nVector databases have rapidly transitioned from niche tooling to foundational infrastructure for modern AI systems. By 2026, more than 68% of enterprise AI applications are expected to rely on ...\n\n## 🤖 IA et Modèles Locaux\n\n**Researchers Find 175,000 Publicly Exposed Ollama AI ... - The Hacker News**\nOver 175,000 publicly exposed Ollama AI servers across 130 countries, with many enabling tool calling that allows code execution and LLMjacking abuse.\n\n**Blog · Ollama**\nThe simplest and fastest way to setup OpenClaw February 23, 2026 Setup OpenClaw in under two minutes with a single Ollama command. Subagents and web search in Claude Code February 16, 2026 Ollama now supports subagents and web search in Claude Code. OpenClaw February 1, 2026 OpenClaw is a personal AI assistant that connects your messaging apps to local AI coding agents, all running on your own ...\n\n## 📊 Tendances Générales RAG\n\n**RAG in 2026: How Retrieval-Augmented Generation Works for Enterprise AI**\nRAG in 2026 in Enterprise AI scenario has shifted from experimentation to a production-critical architecture, redefining how organizations deploy retrieval augmented generation in 2026 to ensure accuracy, compliance, and real-time intelligence.\n\n**RAG in Enterprise AI: 15 Key News Announcements - March 26, 2026**\nSomething is shifting fast in enterprise AI, and if you've been watching the Retrieval Augmented Generation space, you already know it. RAG has quietly moved from a niche technical concept to one of the most talked-about approaches in business AI deployments. And in just the past 24 hours, that conversation got a lot louder. For […]\n\n## 🔮 Perspectives\n\nL'écosystème RAG continue d'évoluer rapidement avec de nouvelles solutions facilitant l'intégration de l'IA dans les entreprises. La tendance est à l'amélioration des performances, la simplification des déploiements et l'accent sur la confidentialité des données.\n\n",
+  "date": "2026-03-30T09:14:26.155Z",
+  "tags": [
+    "RAG",
+    "Actualités",
+    "IA",
+    "Veille"
+  ],
+  "sources": [
+    "https://www.techment.com/blogs/rag-in-2026/",
+    "https://ragaboutit.com/rag-in-enterprise-ai-15-key-news-announcements-march-26-2026/",
+    "https://www.linkedin.com/pulse/rag-20-next-evolution-retrieval-augmented-generation-2026-asif-p4f7f",
+    "https://blog.langchain.com/january-2026-langchain-newsletter/",
+    "https://thehackernews.com/2026/03/langchain-langgraph-flaws-expose-files.html"
+  ]
+}

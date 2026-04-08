@@ -1,0 +1,20 @@
+{
+  "id": "article-2026-03-23-1774256283439",
+  "title": "Actualités RAG : LangChain en Vedette cette Semaine",
+  "summary": "Revue hebdomadaire des actualités des serveurs RAG, bases vectorielles et frameworks d'IA - 16/03/2026 au 23/03/2026",
+  "content": "# Actualités des Serveurs RAG - Semaine du 16/03/2026\n\nCette semaine a été riche en nouveautés dans l'écosystème des serveurs RAG (Retrieval-Augmented Generation).\n\n## 🔗 LangChain et Frameworks\n\n**January 2026: LangChain Newsletter**\nJanuary 2026: LangChain Newsletter Read about the latest product updates, events, and content from the LangChain team\n\n**LangChain Ecosystem Updates and Agentic AI Roadmap 2026**\nAn in-depth look at the January 2026 LangChain updates, focusing on LangGraph enterprise features, DeepSeek-V3 integration, and the evolution of agentic RAG workflows.\n\n## 🗄️ Bases de Données Vectorielles\n\n**What's Changing in Vector Databases in 2026 - DEV Community**\nForce 1: Database Consolidation (Multimodal Platforms Win) In 2026, major traditional relational databases have integrated vector capabilities into their data layer, and their extensions are already showing success with AI workloads. PostgreSQL's pgvectorscale, for instance, benchmarked 471 QPS, against Qdrant's 41 QPS at 99% recall on 50M ...\n\n**Nvidia GTC 2026: KIOXIA Achieves 4.8 Billion High-Dimensional Vector ...**\nNvidia GTC 2026: KIOXIA Achieves 4.8 Billion High-Dimensional Vector Search Database on a Single Server, with 7.8x Index Build Time Acceleration via GPUs Leveraging the Nvidia cuVS library with KIOXIA AiSAQ technology to index vectors of 1024 dimensions with minimal DRAM use This is a Press Release edited by StorageNewsletter.com on March 19, 2026 at 2:01 pm\n\n## 🤖 IA et Modèles Locaux\n\n**Researchers Find 175,000 Publicly Exposed Ollama AI ... - The Hacker News**\nOver 175,000 publicly exposed Ollama AI servers across 130 countries, with many enabling tool calling that allows code execution and LLMjacking abuse.\n\n**Hackers Actively Exploiting AI Deployments - 91,000+ Attack Sessions ...**\nSecurity researchers have identified over 91,000 attack sessions targeting AI infrastructure between October 2025 and January 2026, exposing systematic campaigns against large language model deployments. GreyNoise's Ollama honeypot infrastructure captured 91,403 attack sessions during this period, revealing two distinct threat campaigns.\n\n## 📊 Tendances Générales RAG\n\n**RAG in 2026: How Retrieval-Augmented Generation Works for Enterprise AI**\nRAG in 2026 in Enterprise AI scenario has shifted from experimentation to a production-critical architecture, redefining how organizations deploy retrieval augmented generation in 2026 to ensure accuracy, compliance, and real-time intelligence.\n\n**RAG in 2026: The Latest Breakthroughs Reshaping Enterprise AI**\nGeneral-purpose RAG works reasonably well across many tasks. But the organizations seeing the strongest results in 2026 are those that have invested in domain-specific adaptations, tuning their retrieval and generation pipelines for the specific language, document types, and reasoning patterns of their industry.\n\n## 🔮 Perspectives\n\nL'écosystème RAG continue d'évoluer rapidement avec de nouvelles solutions facilitant l'intégration de l'IA dans les entreprises. La tendance est à l'amélioration des performances, la simplification des déploiements et l'accent sur la confidentialité des données.\n\n",
+  "date": "2026-03-23T08:58:03.439Z",
+  "tags": [
+    "RAG",
+    "Actualités",
+    "IA",
+    "Veille"
+  ],
+  "sources": [
+    "https://www.techment.com/blogs/rag-in-2026/",
+    "https://ragaboutit.com/rag-in-2026-the-latest-breakthroughs-reshaping-enterprise-ai/",
+    "https://www.linkedin.com/pulse/rag-20-next-evolution-retrieval-augmented-generation-2026-asif-p4f7f",
+    "https://blog.langchain.com/january-2026-langchain-newsletter/",
+    "https://explore.n1n.ai/blog/langchain-ecosystem-updates-agentic-ai-roadmap-2026-2026-01-31"
+  ]
+}
