@@ -31,7 +31,7 @@ export default function CertificationCard({
         alt=""
         width={120}
         height={120}
-        className="flex-none border-2 border-accent"
+        className="flex-none border-2 border-accent object-contain bg-ivory"
       />
       <div>
         <h3 className="font-display text-xl uppercase">{title}</h3>
