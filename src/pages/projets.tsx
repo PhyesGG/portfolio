@@ -53,13 +53,14 @@ const PUBLIC_PROJECTS = [
 const PROD_PROJECTS = [
   {
     title: "RFT Discord Bot",
-    description: "Bot Discord sur mesure, developpe en freelance.",
+    description:
+      "Bot Discord prive de veille multi-sources, notifications enrichies traduites en francais.",
     detail: [
-      "Bot Discord sur mesure developpe en freelance.",
-      // TODO Phyes : colle ici le texte exact de la fiche du gig —
-      // je le remplace au mot pres des que tu me le donnes.
+      "Bot Discord RFT (prive) : un bot Discord de surveillance et de suivi multi-sources, concu pour centraliser automatiquement des informations esport, juridiques et financieres.",
+      "Detecte les nouveaux elements toutes les 30 minutes et envoie des notifications Discord enrichies, traduites et resumees en francais via un LLM heberge en local.",
+      "Des compteurs de caracteres permettent de verifier qu'un texte respecte une longueur minimale requise.",
     ],
-    tags: ["Python", "Discord.py"],
+    tags: ["Python", "Discord.py", "LLM local"],
   },
   {
     title: "Discord — veille automatisee",
