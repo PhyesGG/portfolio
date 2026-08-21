@@ -53,11 +53,13 @@ const PUBLIC_PROJECTS = [
 const PROD_PROJECTS = [
   {
     title: "RFT Discord Bot",
-    description:
-      "Bot Discord sur mesure, developpe et livre en freelance via Fiverr.",
-    tags: ["Python", "Discord.py", "Freelance"],
-    url: "https://fr.fiverr.com/phyesland?public_mode=true",
-    status: "Fiverr",
+    description: "Bot Discord sur mesure, developpe en freelance.",
+    detail: [
+      "Bot Discord sur mesure developpe en freelance.",
+      // TODO Phyes : colle ici le texte exact de la fiche du gig —
+      // je le remplace au mot pres des que tu me le donnes.
+    ],
+    tags: ["Python", "Discord.py"],
   },
   {
     title: "Discord — veille automatisee",
