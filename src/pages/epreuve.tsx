@@ -1,5 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { useRouter } from "next/router";
+
+// Evite le flash "E5" avant hydratation quand on arrive directement sur ?tab=e6
+// (partage de lien, aperçu Discord/LinkedIn) : la bascule se fait avant la peinture.
+const useIsoLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
@@ -11,9 +16,15 @@ type Tab = "E5" | "E6";
 
 export default function Epreuve() {
   const router = useRouter();
-  const [selected, setSelected] = useState<Tab>("E5");
+  const [selected, setSelected] = useState<Tab>(() => {
+    if (typeof window !== "undefined") {
+      const q = new URLSearchParams(window.location.search).get("tab");
+      if (q === "e6") return "E6";
+    }
+    return "E5";
+  });
 
-  useEffect(() => {
+  useIsoLayoutEffect(() => {
     if (router.query.tab === "e6") setSelected("E6");
     else if (router.query.tab === "e5") setSelected("E5");
   }, [router.query.tab]);
