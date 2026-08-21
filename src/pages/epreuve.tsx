@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import HeroOutremer from "@/components/HeroOutremer";
 import Footer from "@/components/sections/index/Footer";
 import { GridPattern } from "@/components/GridPattern";
 
@@ -20,6 +21,7 @@ export default function Epreuve() {
   return (
     <>
       <Navbar />
+      <HeroOutremer scene="marcheurs" />
       <main className="relative min-h-screen overflow-x-hidden px-6">
         <GridPattern width={50} height={50} x={-1} y={-1} className="z-[-5]" />
         <section className="max-w-4xl w-full flex flex-col mx-auto pt-28">

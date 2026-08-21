@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
+import HeroOutremer from "@/components/HeroOutremer";
 import Footer from "@/components/sections/index/Footer";
 import VeilleTechnologique from "@/components/sections/index/VeilleTechnologique";
 import { GridPattern } from "@/components/GridPattern";
@@ -28,6 +29,7 @@ export default function Veille({ articles }: { articles: Article[] }) {
   return (
     <>
       <Navbar />
+      <HeroOutremer scene="cercles" />
       <main className="relative min-h-screen overflow-x-hidden px-6">
         <GridPattern width={50} height={50} x={-1} y={-1} className="z-[-5]" />
         <div className="pt-24">

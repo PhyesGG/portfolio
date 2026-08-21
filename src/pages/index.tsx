@@ -1,6 +1,7 @@
 import { useInView } from 'react-intersection-observer';
 
 import Navbar from "@/components/Navbar";
+import HeroOutremer from "@/components/HeroOutremer";
 import Hero from "@/components/sections/index/Hero";
 import About from "@/components/sections/index/About";
 import Footer from "@/components/sections/index/Footer";
@@ -16,6 +17,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
+      <HeroOutremer scene="tours" />
       <main className="relative min-h-screen overflow-x-hidden px-6">
         <GridPattern
           width={50}
