@@ -5,6 +5,7 @@ const SCENES = {
   lampadaire: { src: "/trame/scenes/outremer_2_lampadaire.jpg", pos: "center 45%" },
   cercles: { src: "/trame/scenes/outremer_3_cercles.jpg", pos: "center 55%" },
   tours: { src: "/trame/scenes/outremer_4_tours.jpg", pos: "center 40%" },
+  projets: { src: "/trame/scenes/outremer_5_projets.jpg", pos: "center 58%" },
 } as const;
 
 type Props = {

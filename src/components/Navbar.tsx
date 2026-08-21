@@ -13,14 +13,14 @@ export default function Navbar() {
                 animate={{ transform: 'translateY(0px)', opacity: 100 }}
                 transition={{ duration: 0.5, delay: 0.1, ease: [0.39, 0.21, 0.12, 0.96] }}
             >
-                <nav style={{ boxShadow: '0 0 30px 2.5px #0a0a0a' }} className="flex h-14 max-w-[46rem] w-screen bg-gradient-to-br from-primary/90 to-secondary/90 backdrop-blur-md rounded-lg border-1 border-accent px-4">
+                <nav style={{ boxShadow: '0 0 30px 2.5px #0a0a0a' }} className="flex h-14 max-w-[52rem] w-screen bg-gradient-to-br from-primary/90 to-secondary/90 backdrop-blur-md rounded-lg border-1 border-accent px-2 sm:px-4 overflow-x-auto">
                     <div className="flex flex-row items-center justify-center w-full">
                         <div className="flex flex-row gap-2 items-center">
 
                             {/* Accueil */}
                             <Link
                                 href="/"
-                                className="p-2 duration-300 text-lg font-medium hover:bg-secondary rounded-md"
+                                className="p-1.5 sm:p-2 duration-300 text-base sm:text-lg font-medium hover:bg-secondary rounded-md whitespace-nowrap"
                             >
                                 Accueil
                             </Link>
@@ -30,7 +30,7 @@ export default function Navbar() {
                                 <button
                                     onClick={() => setDropdownOpen((prev) => !prev)}
                                     onBlur={() => setTimeout(() => setDropdownOpen(false), 150)}
-                                    className="p-2 duration-300 text-lg font-medium hover:bg-secondary rounded-md flex items-center gap-1"
+                                    className="p-1.5 sm:p-2 duration-300 text-base sm:text-lg font-medium hover:bg-secondary rounded-md flex items-center gap-1 whitespace-nowrap"
                                 >
                                     Épreuve
                                     <svg
@@ -75,9 +75,25 @@ export default function Navbar() {
                             {/* Veille Technologique */}
                             <Link
                                 href="/veille"
-                                className="p-2 duration-300 text-lg font-medium hover:bg-secondary rounded-md"
+                                className="p-1.5 sm:p-2 duration-300 text-base sm:text-lg font-medium hover:bg-secondary rounded-md whitespace-nowrap"
                             >
                                 Veille Technologique
+                            </Link>
+
+                            {/* Projets */}
+                            <Link
+                                href="/projets"
+                                className="p-1.5 sm:p-2 duration-300 text-base sm:text-lg font-medium hover:bg-secondary rounded-md whitespace-nowrap"
+                            >
+                                Projets
+                            </Link>
+
+                            {/* Certifications */}
+                            <Link
+                                href="/certifications"
+                                className="p-1.5 sm:p-2 duration-300 text-base sm:text-lg font-medium hover:bg-secondary rounded-md whitespace-nowrap"
+                            >
+                                Certifications
                             </Link>
 
                         </div>
