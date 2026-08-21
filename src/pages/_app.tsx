@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <NextSeo
         title={"Mohamed Abidi - Portfolio"}
         description={"Portfolio BTS SIO SISR - Responsable Infrastructure Systemes et Reseaux"}
-        themeColor={"#2563eb"}
+        themeColor={"#1834C6"}
         openGraph={{
           title: "Mohamed Abidi - Portfolio",
           description: "Portfolio BTS SIO SISR - Responsable Infrastructure Systemes et Reseaux",

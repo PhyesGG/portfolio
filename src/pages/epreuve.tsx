@@ -36,7 +36,7 @@ export default function Epreuve() {
           </motion.h1>
 
           <motion.p
-            className="text-center text-gray-400 mt-2 mb-6"
+            className="text-center text-mut mt-2 mb-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -72,7 +72,7 @@ export default function Epreuve() {
               transition={{ duration: 0.4 }}
             >
               <h2 className="text-2xl font-semibold text-center mb-2">E5 — Situation d&apos;entreprise</h2>
-              <p className="text-gray-400 text-center mb-6">
+              <p className="text-mut text-center mb-6">
                 Rapports de situations professionnelles en entreprise
               </p>
               <ul className="grid sm:grid-cols-2 gap-4 mb-8">
@@ -83,7 +83,7 @@ export default function Epreuve() {
                     className="block rounded-lg border border-accent bg-secondary p-4 hover:bg-accent/20 duration-200"
                   >
                     <h3 className="font-semibold text-lg mb-1">Gestion des autorisations réseau</h3>
-                    <p className="text-sm text-gray-400">Consulter le rapport PDF</p>
+                    <p className="text-sm text-mut">Consulter le rapport PDF</p>
                   </Link>
                 </li>
                 <li>
@@ -93,7 +93,7 @@ export default function Epreuve() {
                     className="block rounded-lg border border-accent bg-secondary p-4 hover:bg-accent/20 duration-200"
                   >
                     <h3 className="font-semibold text-lg mb-1">NDI — Réseau d&apos;entreprise</h3>
-                    <p className="text-sm text-gray-400">Consulter le rapport PDF</p>
+                    <p className="text-sm text-mut">Consulter le rapport PDF</p>
                   </Link>
                 </li>
               </ul>
@@ -109,7 +109,7 @@ export default function Epreuve() {
               transition={{ duration: 0.4 }}
             >
               <h2 className="text-2xl font-semibold text-center mb-2">E6 — Mise en pratique</h2>
-              <p className="text-gray-400 text-center mb-6">
+              <p className="text-mut text-center mb-6">
                 Mise en situation technique autour des infrastructures systèmes et réseaux
               </p>
               <ul className="grid sm:grid-cols-1 gap-4 mb-8 max-w-xl mx-auto">
@@ -120,7 +120,7 @@ export default function Epreuve() {
                     className="block rounded-lg border border-accent bg-secondary p-4 hover:bg-accent/20 duration-200"
                   >
                     <h3 className="font-semibold text-lg mb-1">Infrastructure pfSense avec VLANs et portail captif</h3>
-                    <p className="text-sm text-gray-400">
+                    <p className="text-sm text-mut">
                       Mise en place d&apos;une infrastructure réseau segmentée sous VMware Workstation :
                       configuration de pfSense, VLANs (Employés, Serveurs, Public), règles de firewall et portail captif.
                     </p>

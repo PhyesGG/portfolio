@@ -32,13 +32,13 @@ export default function ArticleCard({ article, index }: ArticleCardProps) {
       onClick={() => setIsExpanded(!isExpanded)}
     >
       <div className="flex justify-between items-start mb-3">
-        <h3 className="text-xl font-semibold text-white">{article.title}</h3>
-        <span className="text-sm text-gray-400 whitespace-nowrap ml-4">
+        <h3 className="text-xl font-semibold text-text">{article.title}</h3>
+        <span className="text-sm text-mut whitespace-nowrap ml-4">
           {formatDate(article.date)}
         </span>
       </div>
 
-      <p className="text-gray-300 mb-4">{article.summary}</p>
+      <p className="text-text/85 mb-4">{article.summary}</p>
 
       <div className="flex flex-wrap gap-2 mb-4">
         {article.tags.map((tag, idx) => (
@@ -59,19 +59,19 @@ export default function ArticleCard({ article, index }: ArticleCardProps) {
           className="border-t border-accent/30 pt-4 mt-4"
         >
           <div
-            className="prose prose-invert max-w-none text-gray-300
-              [&_h1]:text-white [&_h1]:text-2xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:mt-6
-              [&_h2]:text-white [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:mb-3 [&_h2]:mt-5
-              [&_h3]:text-white [&_h3]:text-lg [&_h3]:font-medium [&_h3]:mb-2 [&_h3]:mt-4
+            className="prose max-w-none text-text/85
+              [&_h1]:text-text [&_h1]:text-2xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:mt-6
+              [&_h2]:text-text [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:mb-3 [&_h2]:mt-5
+              [&_h3]:text-text [&_h3]:text-lg [&_h3]:font-medium [&_h3]:mb-2 [&_h3]:mt-4
               [&_p]:mb-3 [&_p]:leading-relaxed
-              [&_strong]:text-white [&_strong]:font-semibold
+              [&_strong]:text-cobalt [&_strong]:font-semibold
               [&_ul]:list-disc [&_ul]:list-inside [&_ul]:mb-3 [&_ul]:space-y-1
               [&_ol]:list-decimal [&_ol]:list-inside [&_ol]:mb-3 [&_ol]:space-y-1
-              [&_li]:text-gray-300
+              [&_li]:text-text/85
               [&_a]:text-accent [&_a]:underline [&_a:hover]:text-accent/80
               [&_code]:bg-secondary [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm [&_code]:text-accent
               [&_pre]:bg-secondary [&_pre]:p-4 [&_pre]:rounded-lg [&_pre]:overflow-x-auto [&_pre]:mb-3
-              [&_blockquote]:border-l-2 [&_blockquote]:border-accent [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-400
+              [&_blockquote]:border-l-2 [&_blockquote]:border-accent [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-mut
               [&_hr]:border-accent/30 [&_hr]:my-4"
             dangerouslySetInnerHTML={{ __html: renderedContent }}
           />

@@ -55,7 +55,7 @@ export default function PresenceCard({ presence, date, direction, span, gradient
                                         <div className="flex flex-row gap-2 justify-between mt-1 items-center">
                                             <p className={`whitespace-normal text-sm`}>{new Date((date.getTime() - new Date(activity.timestamps.start).getTime())).toISOString().slice(14, 19)}</p>
                                             <div className="w-full rounded-full h-2 bg-secondary overflow-x-hidden">
-                                                <div style={{ width: `${((date.getTime() - new Date(activity.timestamps.start).getTime()) / (new Date(activity.timestamps.end).getTime() - new Date(activity.timestamps.start).getTime())) * 100}%` }} className="h-2 rounded-full bg-white"></div>
+                                                <div style={{ width: `${((date.getTime() - new Date(activity.timestamps.start).getTime()) / (new Date(activity.timestamps.end).getTime() - new Date(activity.timestamps.start).getTime())) * 100}%` }} className="h-2 rounded-full bg-cobalt"></div>
                                             </div>
                                             <p className={`whitespace-normal text-sm`}>{new Date((new Date(activity.timestamps.end).getTime() - new Date(activity.timestamps.start).getTime())).toISOString().slice(14, 19)}</p>
                                         </div>

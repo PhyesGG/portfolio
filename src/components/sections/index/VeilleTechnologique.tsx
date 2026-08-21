@@ -23,21 +23,21 @@ export default function VeilleTechnologique({ articles = [] }: { articles?: Arti
           transition={{ duration: 0.5, delay: 0.2, ease: [0.39, 0.21, 0.12, 0.96], }}
           viewport={{ amount: 0.1, once: true }}
         >
-          <p className="text-gray-300 leading-relaxed mb-5">
-            Ma veille porte principalement sur le <span className="text-white font-medium">RAG (Retrieval-Augmented Generation)</span>,
+          <p className="text-text/85 leading-relaxed mb-5">
+            Ma veille porte principalement sur le <span className="text-cobalt font-medium">RAG (Retrieval-Augmented Generation)</span>,
             une approche qui consiste à connecter un modèle de langage à une base de connaissances externe.
             Concrètement, au lieu de se fier uniquement à ce qu&apos;il a appris lors de son entraînement,
             le modèle va d&apos;abord chercher des informations pertinentes dans des documents ou une base de données,
             puis s&apos;en sert pour formuler une réponse plus précise et à jour.
           </p>
-          <p className="text-gray-300 leading-relaxed mb-5">
-            Du côté des outils, plusieurs solutions se distinguent : <span className="text-white font-medium">LangChain</span> pour
-            orchestrer les différentes étapes du pipeline, <span className="text-white font-medium">ChromaDB</span> ou <span className="text-white font-medium">Pinecone</span> pour
-            stocker les données sous forme vectorielle, et <span className="text-white font-medium">Ollama</span> pour faire tourner
+          <p className="text-text/85 leading-relaxed mb-5">
+            Du côté des outils, plusieurs solutions se distinguent : <span className="text-cobalt font-medium">LangChain</span> pour
+            orchestrer les différentes étapes du pipeline, <span className="text-cobalt font-medium">ChromaDB</span> ou <span className="text-cobalt font-medium">Pinecone</span> pour
+            stocker les données sous forme vectorielle, et <span className="text-cobalt font-medium">Ollama</span> pour faire tourner
             des modèles en local sans dépendre du cloud. Ces briques s&apos;assemblent pour former des systèmes
             capables de répondre à des questions sur des données internes et privées.
           </p>
-          <p className="text-gray-300 leading-relaxed">
+          <p className="text-text/85 leading-relaxed">
             En entreprise, ça ouvre des possibilités concrètes : un assistant capable de répondre sur la
             documentation technique interne, un chatbot de support qui s&apos;appuie sur les vraies procédures
             de la boîte, ou encore un outil d&apos;aide à la décision alimenté par des données propriétaires.
@@ -57,7 +57,7 @@ export default function VeilleTechnologique({ articles = [] }: { articles?: Arti
           <h2 className="text-3xl font-bold text-center mb-8">
             Articles de Veille Hebdomadaire
           </h2>
-          <p className="text-center text-gray-400 mb-8">
+          <p className="text-center text-mut mb-8">
             Nouveaux articles générés automatiquement chaque lundi à 9h sur les dernières actualités des serveurs RAG et IA
           </p>
 
@@ -67,7 +67,7 @@ export default function VeilleTechnologique({ articles = [] }: { articles?: Arti
                 <ArticleCard key={article.id} article={article} index={index} />
               ))
             ) : (
-              <div className="text-center text-gray-400 py-12">
+              <div className="text-center text-mut py-12">
                 Aucun article disponible pour le moment. Le premier article sera publié lundi prochain.
               </div>
             )}
