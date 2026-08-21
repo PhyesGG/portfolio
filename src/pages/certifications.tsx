@@ -18,7 +18,7 @@ export default function Certifications() {
               title="Introduction aux réseaux"
               issuer="Cisco Networking Academy (NetAcad)"
               note="Fondamentaux des réseaux : modèles OSI/TCP-IP, adressage IP, équipements et protocoles de base."
-              badge="/trame/badge_cisco_netacad.png"
+              badge="/trame/badge_cisco_netacad_real.png"
             />
           </ul>
         </div>

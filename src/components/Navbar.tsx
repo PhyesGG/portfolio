@@ -13,9 +13,9 @@ export default function Navbar() {
                 animate={{ transform: 'translateY(0px)', opacity: 100 }}
                 transition={{ duration: 0.5, delay: 0.1, ease: [0.39, 0.21, 0.12, 0.96] }}
             >
-                <nav style={{ boxShadow: '0 0 30px 2.5px #0a0a0a' }} className="flex h-14 max-w-[52rem] w-screen bg-gradient-to-br from-primary/90 to-secondary/90 backdrop-blur-md rounded-lg border-1 border-accent px-2 sm:px-4 overflow-x-auto">
+                <nav style={{ boxShadow: '0 0 30px 2.5px #0a0a0a' }} className="flex h-14 max-w-[52rem] w-screen bg-gradient-to-br from-primary/90 to-secondary/90 backdrop-blur-md rounded-lg border-1 border-accent px-2 sm:px-4">
                     <div className="flex flex-row items-center justify-center w-full">
-                        <div className="flex flex-row gap-2 items-center">
+                        <div className="flex flex-row gap-0.5 sm:gap-2 items-center">
 
                             {/* Accueil */}
                             <Link
