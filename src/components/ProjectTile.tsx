@@ -9,6 +9,7 @@ type ProjectTileProps = {
   tags: string[];
   url?: string; // lien externe (depot public) — prioritaire sur `detail`
   detail?: string[]; // fiche explicative ouverte en modal, aucune sortie du site
+  logo?: string; // logo affiche dans la fiche modale (peut etre une URL externe)
   status?: string; // ex: "Prod" quand il n'y a pas de lien public
   delay?: number;
 };
@@ -19,6 +20,7 @@ export default function ProjectTile({
   tags,
   url,
   detail,
+  logo,
   status,
   delay = 0,
 }: ProjectTileProps) {
@@ -90,6 +92,14 @@ export default function ProjectTile({
             {cardInner}
           </button>
           <Modal open={open} setOpen={setOpen}>
+            {logo && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={logo}
+                alt=""
+                className="mb-4 h-16 w-16 border-2 border-accent bg-ivory object-contain"
+              />
+            )}
             <h2 className="font-display text-2xl uppercase">{title}</h2>
             <div className="mt-4 flex flex-col gap-3">
               {detail!.map((p, i) => (

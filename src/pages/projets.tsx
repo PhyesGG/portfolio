@@ -61,6 +61,7 @@ const PROD_PROJECTS = [
       "Des compteurs de caracteres permettent de verifier qu'un texte respecte une longueur minimale requise.",
     ],
     tags: ["Python", "Discord.py", "LLM local"],
+    logo: "https://rft.gg/images/default-og.png",
   },
   {
     title: "Discord — veille automatisee",
