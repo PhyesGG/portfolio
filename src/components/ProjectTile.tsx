@@ -97,7 +97,7 @@ export default function ProjectTile({
               <img
                 src={logo}
                 alt=""
-                className="mb-4 h-16 w-16 border-2 border-accent bg-ivory object-contain"
+                className="-mx-4 -mt-4 mb-4 h-32 w-[calc(100%+2rem)] border-b-2 border-accent object-cover object-center md:-mx-6 md:-mt-6 md:w-[calc(100%+3rem)]"
               />
             )}
             <h2 className="font-display text-2xl uppercase">{title}</h2>
