@@ -107,6 +107,16 @@ export default function Epreuve() {
                     <p className="text-sm text-mut">Consulter le rapport PDF</p>
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    href="/documents/Rapport_E5_Deploiement_Annuaire_K8s.pdf"
+                    target="_blank"
+                    className="block rounded-lg border border-accent bg-secondary p-4 hover:bg-accent/20 duration-200"
+                  >
+                    <h3 className="font-semibold text-lg mb-1">Déploiement d&apos;un annuaire sur Kubernetes</h3>
+                    <p className="text-sm text-mut">Consulter le rapport PDF</p>
+                  </Link>
+                </li>
               </ul>
             </motion.div>
           )}
